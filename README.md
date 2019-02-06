@@ -1,7 +1,16 @@
 # Brewery Finder
 
+## Dependencies
+
+### react-typed
+This project uses react-typed to produce the typing effect. https://www.npmjs.com/package/react-typed
+
+## Bootstrap Theme
+### Swatch Theme
+This project is currently using the Slate Bootswatch theme. https://bootswatch.com/slate/
+
 ## Anyone can contribute
-Please feel free to contribute to this open source project. First timers are more than welcome. Take a look at the open issues under the issues tab. If you identify a bug, or would like to implement a feature that isn't posted under the issues feel free to submit a new issue. 
+Please feel free to contribute to this open source project. First timers are more than welcome. Take a look at the open issues under the issues tab. If you identify a bug, or would like to implement a feature that isn't posted under the issues feel free to submit a new issue. Also, if you see anything that needs to be updated in the readme file, you're more than welcome to update it.
 
 # How to get started
 
