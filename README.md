@@ -1,3 +1,30 @@
+# Brewery Finder
+
+## Anyone can contribute
+Please feel free to contribute to this open source project. First timers are more than welcome. Take a look at the open issues under the issues tab. If you identify a bug, or would like to implement a feature that isn't posted under the issues feel free to submit a new issue. 
+
+# How to get started
+
+## Fork
+
+Click the fork button to get your copy of the repo.
+
+## Clone 
+
+After you fork the repo you will need to clone it to your machine.
+
+## Set the upstream
+
+This will allow you to stay up to date with changes.
+
+## Install dependencies
+
+Use the npm install command
+
+
+------------------------------------------------
+# React Stuff
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
