@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/BreweryFinder/static/css/main.c06f4691.chunk.css"
   },
   {
-    "revision": "3b7769d1d886b2f0ca4186ea20c64511",
+    "revision": "485126002270174e8302f736ec32b07e",
     "url": "/BreweryFinder/index.html"
   }
 ];
