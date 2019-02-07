@@ -15,13 +15,19 @@ class App extends Component {
     try {
       const data = await fetch(this.state.url);
       const jsonData = await data.json();
+      const cleanData = this.filtreResults(jsonData);
       this.setState({
         isLoaded: true,
-        items: jsonData
+        items: cleanData
       });
     } catch (error) {
       console.log(error);
     }
+  }
+
+  filtreResults(data) {
+    // Exclude items that contains "Brewery In Planning"
+    return data.filter(item => !(item.name.toLowerCase()).includes("Brewery In Planning".toLowerCase()));
   }
 
   handleSearch(searchTerm) {
