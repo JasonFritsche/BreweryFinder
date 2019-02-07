@@ -15,7 +15,7 @@ class App extends Component {
     try {
       const data = await fetch(this.state.url);
       const jsonData = await data.json();
-      const cleanData = this.filtreResults(jsonData);
+      const cleanData = this.filterResults(jsonData);
       this.setState({
         isLoaded: true,
         items: cleanData
@@ -25,7 +25,7 @@ class App extends Component {
     }
   }
 
-  filtreResults(data) {
+  filterResults(data) {
     // Exclude items that contains "Brewery In Planning"
     return data.filter(item => !(item.name.toLowerCase()).includes("Brewery In Planning".toLowerCase()));
   }
