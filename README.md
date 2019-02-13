@@ -12,6 +12,8 @@ This project is currently using the Slate Bootswatch theme. https://bootswatch.c
 ## Anyone can contribute
 Please feel free to contribute to this open source project. First timers are more than welcome. Take a look at the open issues under the issues tab. If you identify a bug, or would like to implement a feature that isn't posted under the issues feel free to submit a new issue. Also, if you see anything that needs to be updated in the readme file, you're more than welcome to update it.
 
+### Please claim the issue that you want to work on in the comments of that issue. 
+
 # How to get started
 
 ## Fork
