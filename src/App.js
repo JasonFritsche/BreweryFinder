@@ -46,7 +46,7 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    this.fetchBreweryData();
+    // this.fetchBreweryData();
   }
 
   componentDidMount() {
