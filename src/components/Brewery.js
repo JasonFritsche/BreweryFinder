@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 
 export default class Brewery extends Component {
-
   displayWebsiteUrl = () => {
-    if(this.props.item.website_url === "") {
+    if (this.props.item.website_url === "") {
       return;
     } else {
-      return(
+      return (
         <a
           className="btn btn-primary"
           target="_blank"
@@ -15,14 +14,12 @@ export default class Brewery extends Component {
         >
           Check Them Out
         </a>
-      )
+      );
     }
-  }
+  };
 
   render() {
-    console.log(this.props)
     return (
-      
       <React.Fragment>
         <div className="col-10 mx-auto col-md-6 col-lg-4 my-3">
           <div className="card h-100">

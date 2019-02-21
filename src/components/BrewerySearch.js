@@ -12,6 +12,7 @@ export default class BrewerySearch extends Component {
 
   onSearchClick() {
     this.props.handleSearch(this.state.search);
+    console.log(this.state.search);
   }
 
   render() {
