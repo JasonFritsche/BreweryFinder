@@ -25,13 +25,16 @@ class App extends Component {
     }
   }
 
-  filterResults(data) {
+  filterResults = data => {
     // Exclude items that contains "Brewery In Planning"
-    return data.filter(item => !(item.name.toLowerCase()).includes("Brewery In Planning".toLowerCase()));
-  }
+    return data.filter(
+      item =>
+        !item.name.toLowerCase().includes("Brewery In Planning".toLowerCase())
+    );
+  };
 
-  handleSearch(searchTerm) {
-    this.setState({
+  async handleSearch(searchTerm) {
+    await this.setState({
       url: `https://api.openbrewerydb.org/breweries?by_city=${searchTerm}`,
       pageIndex: 1
     });
@@ -46,7 +49,7 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    // this.fetchBreweryData();
+    this.fetchBreweryData();
   }
 
   componentDidMount() {
