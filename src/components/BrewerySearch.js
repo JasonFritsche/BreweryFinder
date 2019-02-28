@@ -6,11 +6,11 @@ export default class BrewerySearch extends Component {
     search: "Boston"
   };
 
-  updateSearch(event) {
+  updateSearch = event => {
     this.setState({ search: event.target.value });
   }
 
-  onSearchClick() {
+  onSearchClick = () => {
     this.props.handleSearch(this.state.search);
     console.log(this.state.search);
   }
@@ -52,11 +52,11 @@ export default class BrewerySearch extends Component {
                   className="form-control"
                   type="text"
                   placeholder="Enter city name..."
-                  onChange={this.updateSearch.bind(this)}
+                  onChange={this.updateSearch}
                 />
                 <button
                   className="btn btn-primary mx-2"
-                  onClick={() => this.onSearchClick()}
+                  onClick={this.onSearchClick}
                 >
                   Search
                 </button>

@@ -3,16 +3,20 @@ import "./App.css";
 import BreweryList from "./components/BreweryList";
 import BrewerySearch from "./components/BrewerySearch";
 
+const PAGE_HOME = "home";
+const PAGE_RESULTS = "search_results";
+
 class App extends Component {
   state = {
     items: [],
     isLoaded: false,
     url: "https://api.openbrewerydb.org/breweries",
-    pageIndex: 0
+    page: PAGE_HOME 
   };
 
   async fetchBreweryData() {
     try {
+      this.setState({ isLoaded: false });
       const data = await fetch(this.state.url);
       const jsonData = await data.json();
       const cleanData = this.filterResults(jsonData);
@@ -33,23 +37,24 @@ class App extends Component {
     );
   };
 
-  async handleSearch(searchTerm) {
-    await this.setState({
-      url: `https://api.openbrewerydb.org/breweries?by_city=${searchTerm}`,
-      pageIndex: 1
-    });
-    console.log("App " + searchTerm);
-    console.log("App state: " + this.state.url);
-  }
-
-  backToSearch() {
+  handleSearch = searchTerm => {
     this.setState({
-      pageIndex: 0
+      url: `https://api.openbrewerydb.org/breweries?by_city=${searchTerm}`,
+      page: PAGE_RESULTS
     });
   }
 
-  componentDidUpdate() {
-    this.fetchBreweryData();
+  backToSearch = () => {
+    this.setState({
+      page: PAGE_HOME
+    });
+  }
+
+  componentDidUpdate(previousProps, previousState) {
+    const searchChanged = this.state.url !== previousState.url;
+    if (searchChanged) {
+      this.fetchBreweryData();
+    }
   }
 
   componentDidMount() {
@@ -57,15 +62,15 @@ class App extends Component {
   }
 
   whatToDisplay = page => {
-    if (page === 1) {
+    if (page === PAGE_RESULTS) {
       return (
         <BreweryList
           brewery={this.state.items}
-          backToSearch={() => this.backToSearch()}
+          backToSearch={this.backToSearch}
         />
       );
-    } else if (page === 0) {
-      return <BrewerySearch handleSearch={this.handleSearch.bind(this)} />;
+    } else if (page === PAGE_HOME) {
+      return <BrewerySearch handleSearch={this.handleSearch} />;
     }
   };
 
@@ -76,7 +81,7 @@ class App extends Component {
     } else {
       return (
         <React.Fragment>
-          {this.whatToDisplay(this.state.pageIndex)}
+          {this.whatToDisplay(this.state.page)}
         </React.Fragment>
       );
     }
