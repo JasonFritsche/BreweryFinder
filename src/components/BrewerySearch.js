@@ -3,17 +3,22 @@ import Typed from "react-typed";
 
 export default class BrewerySearch extends Component {
   state = {
-    search: "Boston"
+    search: "Boston",
+    searchBy: "city"
   };
 
   updateSearch = event => {
     this.setState({ search: event.target.value });
-  }
+  };
 
   onSearchClick = () => {
     this.props.handleSearch(this.state.search);
-    console.log(this.state.search);
-  }
+  };
+
+  onSearchChange = event => {
+    this.setState({ searchBy: event.target.value });
+    this.props.searchBy(event.target.value);
+  };
 
   render() {
     return (
@@ -27,7 +32,7 @@ export default class BrewerySearch extends Component {
                   "Find a brewery in your hometown",
                   "Find your new hangout",
                   "Find your new favorite beer",
-                  "Find the answer to lifes mysteries"
+                  "Find the answer to your problems"
                 ]}
                 typeSpeed={70}
                 startDelay={1200}
@@ -45,13 +50,13 @@ export default class BrewerySearch extends Component {
           <div className="row">
             <div className="col-10 mx-auto col-md-8 mt-5 text-center">
               <h2 className="text-capitalize">
-                search for breweries in your town
+                search for breweries in your {this.state.searchBy}
               </h2>
               <div className="input-group">
                 <input
                   className="form-control"
                   type="text"
-                  placeholder="Enter city name..."
+                  placeholder="Search here..."
                   onChange={this.updateSearch}
                 />
                 <button
@@ -60,6 +65,38 @@ export default class BrewerySearch extends Component {
                 >
                   Search
                 </button>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col text-center mt-2">
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="searchByOptions"
+                  id="CityRadio"
+                  value="city"
+                  onChange={this.onSearchChange}
+                  checked={this.state.searchBy === "city"}
+                />
+                <label className="form-check-label" htmlFor="CityRadio">
+                  City
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="searchByOptions"
+                  id="stateRadio"
+                  value="state"
+                  onChange={this.onSearchChange}
+                  checked={this.state.searchBy === "state"}
+                />
+                <label className="form-check-label" htmlFor="stateRadio">
+                  State
+                </label>
               </div>
             </div>
           </div>

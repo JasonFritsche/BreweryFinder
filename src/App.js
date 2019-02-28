@@ -11,7 +11,9 @@ class App extends Component {
     items: [],
     isLoaded: false,
     url: "https://api.openbrewerydb.org/breweries",
-    page: PAGE_HOME 
+    searchTerm: "Boston",
+    searchByParam: "city",
+    page: PAGE_HOME
   };
 
   async fetchBreweryData() {
@@ -37,18 +39,29 @@ class App extends Component {
     );
   };
 
-  handleSearch = searchTerm => {
-    this.setState({
-      url: `https://api.openbrewerydb.org/breweries?by_city=${searchTerm}`,
-      page: PAGE_RESULTS
-    });
-  }
-
   backToSearch = () => {
     this.setState({
       page: PAGE_HOME
     });
-  }
+  };
+
+  // searchTerm is the value from the input/search bar
+  handleSearch = searchTerm => {
+    const searchByParam = this.state.searchByParam;
+    console.log(searchByParam);
+    this.setState({
+      url: `https://api.openbrewerydb.org/breweries?by_${searchByParam}=${searchTerm}`,
+      searchTerm: searchTerm,
+      page: PAGE_RESULTS
+    });
+  };
+
+  // sets the searchByParam to either city or state
+  searchBy = e => {
+    this.setState({
+      searchByParam: e
+    });
+  };
 
   componentDidUpdate(previousProps, previousState) {
     const searchChanged = this.state.url !== previousState.url;
@@ -70,7 +83,12 @@ class App extends Component {
         />
       );
     } else if (page === PAGE_HOME) {
-      return <BrewerySearch handleSearch={this.handleSearch} />;
+      return (
+        <BrewerySearch
+          handleSearch={this.handleSearch}
+          searchBy={this.searchBy}
+        />
+      );
     }
   };
 
@@ -80,9 +98,7 @@ class App extends Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <React.Fragment>
-          {this.whatToDisplay(this.state.page)}
-        </React.Fragment>
+        <React.Fragment>{this.whatToDisplay(this.state.page)}</React.Fragment>
       );
     }
   }
