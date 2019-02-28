@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 export default class Brewery extends Component {
-  displayWebsiteUrl = () => {
+  displayWebsiteUrl() {
     if (this.props.item.website_url === "") {
       return;
     } else {
