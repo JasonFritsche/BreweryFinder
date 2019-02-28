@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 import $ from "jquery";
 
 export default class Brewery extends Component {
@@ -8,6 +9,18 @@ export default class Brewery extends Component {
     });
   }
 
+=======
+import $ from 'jquery'
+
+export default class Brewery extends Component {
+
+  componentDidMount(){
+    $(".btn").mouseup(function(){
+      $(this).blur();
+  })
+  }
+  
+>>>>>>> 3aea225bb01997422ac0f3b19b56f27b12e96149
   displayWebsiteUrl() {
     if (this.props.item.website_url === "") {
       return;

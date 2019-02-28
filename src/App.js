@@ -41,7 +41,10 @@ class App extends Component {
 
   backToSearch = () => {
     this.setState({
+<<<<<<< HEAD
       searchByParam: "city",
+=======
+>>>>>>> 3aea225bb01997422ac0f3b19b56f27b12e96149
       page: PAGE_HOME
     });
   };
