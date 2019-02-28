@@ -1,6 +1,14 @@
 import React, { Component } from "react";
+import $ from 'jquery'
 
 export default class Brewery extends Component {
+
+  componentDidMount(){
+    $(".btn").mouseup(function(){
+      $(this).blur();
+  })
+  }
+  
   displayWebsiteUrl() {
     if (this.props.item.website_url === "") {
       return;
