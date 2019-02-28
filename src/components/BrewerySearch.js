@@ -1,24 +1,25 @@
-import React, { Component } from "react";
-import Typed from "react-typed";
+import React, { Component } from 'react'
+import Typed from 'react-typed'
+import RadioButtonContainer from './RadioButtonContainer'
 
 export default class BrewerySearch extends Component {
   state = {
-    search: "Boston",
-    searchBy: "city"
-  };
+    search: '',
+    searchBy: 'city'
+  }
 
   updateSearch = event => {
-    this.setState({ search: event.target.value });
-  };
+    this.setState({ search: event.target.value })
+  }
 
   onSearchClick = () => {
-    this.props.handleSearch(this.state.search);
-  };
+    this.props.handleSearch(this.state.search)
+  }
 
   onSearchChange = event => {
-    this.setState({ searchBy: event.target.value });
-    this.props.searchBy(event.target.value);
-  };
+    this.setState({ searchBy: event.target.value })
+    this.props.searchBy(event.target.value)
+  }
 
   render() {
     return (
@@ -29,10 +30,10 @@ export default class BrewerySearch extends Component {
               <h1 className="Quicksand-Text Glow">Brewery Finder</h1>
               <Typed
                 strings={[
-                  "Find a brewery in your hometown",
-                  "Find your new hangout",
-                  "Find your new favorite beer",
-                  "Find the answer to your problems"
+                  'Find a brewery in your hometown',
+                  'Find your new hangout',
+                  'Find your new favorite beer',
+                  'Find the answer to your problems'
                 ]}
                 typeSpeed={70}
                 startDelay={1200}
@@ -41,7 +42,7 @@ export default class BrewerySearch extends Component {
                 loop={true}
                 loopCount={30}
                 showCursor={true}
-                className={"h4"}
+                className={'h4'}
               />
             </div>
           </div>
@@ -50,7 +51,7 @@ export default class BrewerySearch extends Component {
           <div className="row">
             <div className="col-10 mx-auto col-md-8 mt-5 text-center">
               <h2 className="text-capitalize">
-                search for breweries in your {this.state.searchBy}
+                search for breweries by {this.state.searchBy}
               </h2>
               <div className="input-group">
                 <input
@@ -70,40 +71,42 @@ export default class BrewerySearch extends Component {
           </div>
           <div className="row">
             <div className="col text-center mt-2">
-              <div className="form-check form-check-inline">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="searchByOptions"
-                  id="CityRadio"
-                  value="city"
-                  onChange={this.onSearchChange}
-                  checked={this.state.searchBy === "city"}
-                />
-                <label className="form-check-label" htmlFor="CityRadio">
-                  City
-                </label>
-              </div>
-              <div className="form-check form-check-inline">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="searchByOptions"
-                  id="stateRadio"
-                  value="state"
-                  onChange={this.onSearchChange}
-                  checked={this.state.searchBy === "state"}
-                />
-                <label className="form-check-label" htmlFor="stateRadio">
-                  State
-                </label>
-              </div>
+              <RadioButtonContainer
+                val="city"
+                searchBy={this.state.searchBy}
+                handleSearchChange={this.onSearchChange}
+                identifier="cityRadio"
+              />
+              <RadioButtonContainer
+                val="state"
+                searchBy={this.state.searchBy}
+                handleSearchChange={this.onSearchChange}
+                identifier="stateRadio"
+              />
+              <RadioButtonContainer
+                val="name"
+                searchBy={this.state.searchBy}
+                handleSearchChange={this.onSearchChange}
+                identifier="nameRadio"
+              />
+              <RadioButtonContainer
+                val="type"
+                searchBy={this.state.searchBy}
+                handleSearchChange={this.onSearchChange}
+                identifier="typeRadio"
+              />
+              <RadioButtonContainer
+                val="tag"
+                searchBy={this.state.searchBy}
+                handleSearchChange={this.onSearchChange}
+                identifier="tagRadio"
+              />
             </div>
           </div>
         </div>
         <footer className="mx-auto py-3">
           <div className="container text-center">
-            Powered By{" "}
+            Powered By{' '}
             <span className="text-muted">
               <a
                 href="https://www.openbrewerydb.org/"
