@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/BreweryFinder/static/js/runtime~main.20da10eb.js"
   },
   {
-    "revision": "07e2163ec7fe9487f753",
-    "url": "/BreweryFinder/static/js/main.07e2163e.chunk.js"
+    "revision": "d950fd0b6bacd4be637d",
+    "url": "/BreweryFinder/static/js/main.d950fd0b.chunk.js"
   },
   {
     "revision": "03070685907b136ba5eb",
     "url": "/BreweryFinder/static/js/1.03070685.chunk.js"
   },
   {
-    "revision": "07e2163ec7fe9487f753",
+    "revision": "d950fd0b6bacd4be637d",
     "url": "/BreweryFinder/static/css/main.36e3f17e.chunk.css"
   },
   {
-    "revision": "6d7e9c0b7523de088db4d22a5caf0370",
+    "revision": "ec127f1d9e625086ca814c0c81290832",
     "url": "/BreweryFinder/index.html"
   }
 ];
