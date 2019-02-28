@@ -11,6 +11,7 @@ export default class Brewery extends Component {
           target="_blank"
           rel="noopener noreferrer"
           href={this.props.item.website_url}
+          onMouseDown={e => e.preventDefault()}
         >
           Check Them Out
         </a>
