@@ -5,6 +5,7 @@
   "homepage": "https://JasonFritsche.github.io/BreweryFinder/",
   "dependencies": {
     "gh-pages": "^2.0.1",
+    "jquery": "^3.3.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.3",
