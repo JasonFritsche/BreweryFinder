@@ -8,7 +8,7 @@ export default class BreweryList extends Component {
   }
 
   displayResult(brewery) {
-    if (brewery[0] === undefined) {
+    if (!brewery.length) {
       return (
         <h1 className="Kreon-Text text-center">
           We couldn't find anything in that location...
