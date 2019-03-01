@@ -18,7 +18,7 @@ export default class Brewery extends Component {
   }
 
   render() {
-    const { city, name, brewery_type, street, state, website_url } = this.props.item
+    const { city, name, brewery_type, state, street, website_url } = this.props.brewery
     return (
       <div className="col-10 mx-auto col-md-6 col-lg-4 my-3">
         <div className="card h-100">
