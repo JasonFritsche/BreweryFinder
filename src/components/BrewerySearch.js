@@ -4,21 +4,21 @@ import RadioButtonContainer from "./RadioButtonContainer";
 
 export default class BrewerySearch extends Component {
   state = {
-    search: "Boston",
+    search: "",
     searchBy: "city"
   }
 
   updateSearch = event => {
-    this.setState({ search: event.target.value })
+    this.setState({ search: event.target.value });
   }
 
   onSearchClick = () => {
-    this.props.handleSearch(this.state.search)
+    this.props.handleSearch(this.state.search);
   }
 
   onSearchChange = event => {
-    this.setState({ searchBy: event.target.value })
-    this.props.searchBy(event.target.value)
+    this.setState({ searchBy: event.target.value });
+    this.props.searchBy(event.target.value);
   }
 
   render() {
@@ -53,20 +53,15 @@ export default class BrewerySearch extends Component {
               <h2 className="text-capitalize">
                 search for breweries by {this.state.searchBy}
               </h2>
-              <div className="input-group">
+              <form className="form input-group" onSubmit={this.onSearchClick}>
                 <input
                   className="form-control"
                   type="text"
                   placeholder="Search here..."
                   onChange={this.updateSearch}
                 />
-                <button
-                  className="btn btn-primary mx-2"
-                  onClick={this.onSearchClick}
-                >
-                  Search
-                </button>
-              </div>
+                <button className="btn btn-primary mx-2">Search</button>
+              </form>
             </div>
           </div>
           <div className="row">
