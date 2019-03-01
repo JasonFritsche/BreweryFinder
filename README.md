@@ -6,7 +6,7 @@
 This project uses react-typed to produce the typing effect. https://www.npmjs.com/package/react-typed
 
 ## Bootstrap Theme
-### SLate Theme
+### Slate Theme
 This project is currently using the Slate Bootswatch theme. https://bootswatch.com/slate/
 
 ## Anyone can contribute
