@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import Typed from 'react-typed'
-import RadioButtonContainer from './RadioButtonContainer'
+import React, { Component } from "react";
+import Typed from "react-typed";
+import RadioButtonContainer from "./RadioButtonContainer";
 
 export default class BrewerySearch extends Component {
   state = {
-    search: '',
-    searchBy: 'city'
+    search: "Boston",
+    searchBy: "city"
   }
 
   updateSearch = event => {

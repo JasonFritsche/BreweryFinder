@@ -8,7 +8,7 @@ const PAGE_RESULTS = "search_results";
 
 class App extends Component {
   state = {
-    items: [],
+    breweries: [],
     isLoaded: false,
     url: "https://api.openbrewerydb.org/breweries",
     searchTerm: "Boston",
@@ -24,7 +24,7 @@ class App extends Component {
       const cleanData = this.filterResults(jsonData);
       this.setState({
         isLoaded: true,
-        items: cleanData
+        breweries: cleanData
       });
     } catch (error) {
       console.log(error);
@@ -32,7 +32,7 @@ class App extends Component {
   }
 
   filterResults = data => {
-    // Exclude items that contains "Brewery In Planning"
+    // Exclude breweries that contains "Brewery In Planning"
     return data.filter(
       item =>
         !item.name.toLowerCase().includes("Brewery In Planning".toLowerCase())
@@ -41,7 +41,7 @@ class App extends Component {
 
   backToSearch = () => {
     this.setState({
-      searchByParam: "city",
+      searchByParam: "",
       page: PAGE_HOME
     });
   };
@@ -49,7 +49,6 @@ class App extends Component {
   // searchTerm is the value from the input/search bar
   handleSearch = searchTerm => {
     const searchByParam = this.state.searchByParam;
-    console.log(searchByParam);
     this.setState({
       url: `https://api.openbrewerydb.org/breweries?by_${searchByParam}=${searchTerm}`,
       searchTerm: searchTerm,
@@ -57,7 +56,6 @@ class App extends Component {
     });
   };
 
-  // sets the searchByParam to either city or state
   searchBy = e => {
     this.setState({
       searchByParam: e
@@ -76,14 +74,17 @@ class App extends Component {
   }
 
   whatToDisplay = page => {
+    const { breweries, searchTerm, searchByParam } = this.state
     if (page === PAGE_RESULTS) {
       return (
         <BreweryList
-          brewery={this.state.items}
+          breweries={breweries}
           backToSearch={this.backToSearch}
+          searchTerm={searchTerm}
+          searchParam={searchByParam}
         />
       );
-    } else if (page === PAGE_HOME) {
+    } else {
       return (
         <BrewerySearch
           handleSearch={this.handleSearch}
@@ -94,12 +95,12 @@ class App extends Component {
   };
 
   render() {
-    var { isLoaded } = this.state;
+    const { isLoaded, page } = this.state;
     if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
       return (
-        <React.Fragment>{this.whatToDisplay(this.state.page)}</React.Fragment>
+        <React.Fragment>{this.whatToDisplay(page)}</React.Fragment>
       );
     }
   }

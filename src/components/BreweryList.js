@@ -7,22 +7,22 @@ export default class BreweryList extends Component {
     this.props.backToSearch();
   }
 
-  displayResult(brewery) {
-    if (!brewery.length) {
+  displayResult(breweries, searchTerm, searchParam) {
+    if (!breweries.length) {
       return (
         <h1 className="Kreon-Text text-center">
-          We couldn't find anything in that location...
+          Sorry, no results found for {searchTerm} within the {searchParam} filter.
         </h1>
       );
     } else {
-      return brewery.map(item => {
-        return <Brewery key={item.id} item={item} />;
+      return breweries.map(brewery => {
+        return <Brewery key={brewery.id} brewery={brewery} />;
       });
     }
   }
 
   render() {
-    const { brewery } = this.props;
+    const { breweries, searchTerm, searchParam } = this.props;
     return (
       <React.Fragment>
         <div className="pt-5">
@@ -51,7 +51,7 @@ export default class BreweryList extends Component {
         </div>
 
         <div className="container my-5">
-          <div className="row">{this.displayResult(brewery)}</div>
+          <div className="row">{this.displayResult(breweries, searchTerm, searchParam)}</div>
         </div>
       </React.Fragment>
     );
