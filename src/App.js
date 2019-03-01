@@ -41,7 +41,7 @@ class App extends Component {
 
   backToSearch = () => {
     this.setState({
-      searchByParam: "",
+      searchByParam: "city",
       page: PAGE_HOME
     });
   };
@@ -70,11 +70,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.fetchBreweryData();
+    // this.fetchBreweryData();
   }
 
   whatToDisplay = page => {
-    const { breweries, searchTerm, searchByParam } = this.state
+    const { breweries, searchTerm, searchByParam } = this.state;
     if (page === PAGE_RESULTS) {
       return (
         <BreweryList
@@ -96,12 +96,10 @@ class App extends Component {
 
   render() {
     const { isLoaded, page } = this.state;
-    if (!isLoaded) {
+    if (this.state.page == PAGE_RESULTS && !isLoaded) {
       return <div>Loading...</div>;
     } else {
-      return (
-        <React.Fragment>{this.whatToDisplay(page)}</React.Fragment>
-      );
+      return <React.Fragment>{this.whatToDisplay(page)}</React.Fragment>;
     }
   }
 }
