@@ -18,19 +18,49 @@ Please feel free to contribute to this open source project. First timers are mor
 
 ## Fork
 
-Click the fork button to get your copy of the repo.
+Click the fork button to get your copy of the repo. The fork button is in the top-right area of this page. A fork is your own copy of the repository.
 
 ## Clone 
 
-After you fork the repo you will need to clone it to your machine.
+After you fork the repo you will need to clone it to your machine. Go to your GitHub repositories and open the forked BreweryFinder repository. Look for the "Clone or download" button and copy the url.
 
-## Set the upstream
+Open your terminal and run the following git command:
+`git clone "paste the copied url here"`
 
-This will allow you to stay up to date with changes.
+## Set the Upstream repository
+
+In order to keep up with the latest changes in the repo you should set the upstream repository for your local clone. 
+If you haven't done so already, in your terminal change to the BreweryFinder directory/folder that was created when you ran the `git clone` command. Use the following command to change in to that directory: `cd BrewryFinder`
+
+Now set the upstream remote with the following command:
+* `git remote add upstream https://github.com/JasonFritsche/BreweryFinder.git`
+
+## Create a Branch
+
+Now that you've cloned the repository, create a branch for the issue or feature you plan on working on. 
+First, enter the following git command to make sure you have all of the current version of BreweryFinder:
+* `git fetch upstream`
+
+Now create a new branch with the follow git command:
+* `git checkout -b <enter a branch name here without the brackets> upstream/master`
 
 ## Install dependencies
 
-Use the npm install command
+Use the `npm install` command in your terminal to install of of the project's dependencies. 
+
+## Run the project locally
+
+Run `npm start` to run your local copy of the project on a local server.
+
+## Commit changes
+
+When you're ready to commit your changes you'll want to do the following:
+- Add the changes to your commit by running `git add .`
+- Commit the changes by running `git commit -m "relevant message here"`
+-Push the changes to GitHub by running ` git push origin <your branch name here>`
+
+## Open a Pull Request
+Go to your BreweryFinder repository on GitHub and click the "Compare and pull request" button. Describe what changes you made, and what issue number they are solving. Then click the "Create pull request" button.
 
 
 ------------------------------------------------
