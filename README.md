@@ -33,7 +33,10 @@ Click the fork button to get your copy of the repo. The fork button is in the to
 After you fork the repo you will need to clone it to your machine. Go to your GitHub repositories and open the forked BreweryFinder repository. Look for the "Clone or download" button and copy the url.
 
 Open your terminal and run the following git command:
+
 `git clone "paste the copied url here"`
+
+_Note: Make sure you navigate to the area in your directory where you want to save the local repository_
 
 ## Set the Upstream repository
 
