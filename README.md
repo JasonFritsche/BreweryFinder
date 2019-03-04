@@ -16,6 +16,14 @@ Please feel free to contribute to this open source project. First timers are mor
 
 # How to get started
 
+### Git Resources
+You may find some or all of these resources helpful if you're new to git
+
+* https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line
+* https://www.youtube.com/watch?v=SWYqp7iY_Tc
+* https://www.git-tower.com/learn/git/ebook/en/command-line/appendix/command-line-101
+* http://rogerdudler.github.io/git-guide/
+
 ## Fork
 
 Click the fork button to get your copy of the repo. The fork button is in the top-right area of this page. A fork is your own copy of the repository.
