@@ -26,7 +26,7 @@ You may find some or all of these resources helpful if you're new to git
 
 ## Fork
 
-Click the fork button to get your copy of the repo. The fork button is in the top-right area of this page. A fork is your own copy of the repository.
+Click the fork button to get your copy of the repo. The fork button is in the top-right area of this page. A fork is your own copy of the repository. This means you'll have a "copy" of this repo in your list of Github repositories.
 
 ## Clone 
 
