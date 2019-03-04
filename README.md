@@ -68,7 +68,7 @@ Run `npm start` to run your local copy of the project on a local server.
 When you're ready to commit your changes you'll want to do the following:
 - Add the changes to your commit by running `git add .`
 - Commit the changes by running `git commit -m "relevant message here"`
--Push the changes to GitHub by running ` git push origin <your branch name here>`
+- Push the changes to GitHub by running ` git push origin <your branch name here>`
 
 ## Open a Pull Request
 Go to your BreweryFinder repository on GitHub and click the "Compare and pull request" button. Describe what changes you made, and what issue number they are solving. Then click the "Create pull request" button.
