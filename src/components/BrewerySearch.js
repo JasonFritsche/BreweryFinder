@@ -6,20 +6,20 @@ export default class BrewerySearch extends Component {
   state = {
     search: "",
     searchBy: "city"
-  }
+  };
 
   updateSearch = event => {
     this.setState({ search: event.target.value });
-  }
+  };
 
   onSearchClick = () => {
     this.props.handleSearch(this.state.search);
-  }
+  };
 
   onSearchChange = event => {
     this.setState({ searchBy: event.target.value });
     this.props.searchBy(event.target.value);
-  }
+  };
 
   render() {
     return (
@@ -30,10 +30,10 @@ export default class BrewerySearch extends Component {
               <h1 className="Quicksand-Text Glow">Brewery Finder</h1>
               <Typed
                 strings={[
-                  'Find a brewery in your hometown',
-                  'Find your new hangout',
-                  'Find your new favorite beer',
-                  'Find the answer to your problems'
+                  "Find a brewery in your hometown",
+                  "Find your new hangout",
+                  "Find your new favorite beer",
+                  "Find the answer to your problems"
                 ]}
                 typeSpeed={70}
                 startDelay={1200}
@@ -42,7 +42,7 @@ export default class BrewerySearch extends Component {
                 loop={true}
                 loopCount={30}
                 showCursor={true}
-                className={'h4'}
+                className={"h4"}
               />
             </div>
           </div>
@@ -71,37 +71,44 @@ export default class BrewerySearch extends Component {
                 searchBy={this.state.searchBy}
                 handleSearchChange={this.onSearchChange}
                 identifier="cityRadio"
+                tooltip="Search by city"
               />
               <RadioButtonContainer
                 val="state"
                 searchBy={this.state.searchBy}
                 handleSearchChange={this.onSearchChange}
                 identifier="stateRadio"
+                tooltip="Search by state"
               />
               <RadioButtonContainer
                 val="name"
                 searchBy={this.state.searchBy}
                 handleSearchChange={this.onSearchChange}
                 identifier="nameRadio"
+                tooltip="Search by brewery name"
               />
               <RadioButtonContainer
                 val="type"
                 searchBy={this.state.searchBy}
                 handleSearchChange={this.onSearchChange}
                 identifier="typeRadio"
+                tooltip="Types: micro, regional, brewpub, large, planning, bar, contract, proprietor"
               />
-              <RadioButtonContainer
+
+              {/* commenting out the tag radio  button for now, as the API doesn't offer much support for this feature yet. Uncomment and test it yourself to see if more search results appear. If so, feel free to uncomment and commit the code to reintroduce the 'tag' radio button */}
+              {/* <RadioButtonContainer
                 val="tag"
                 searchBy={this.state.searchBy}
                 handleSearchChange={this.onSearchChange}
                 identifier="tagRadio"
-              />
+                tooltip="Example: dog-friendly, patio, food-service, food-truck, tours"
+              /> */}
             </div>
           </div>
         </div>
         <footer className="mx-auto py-3">
           <div className="container text-center">
-            Powered By{' '}
+            Powered By{" "}
             <span className="text-muted">
               <a
                 href="https://www.openbrewerydb.org/"
