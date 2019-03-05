@@ -96,7 +96,7 @@ class App extends Component {
 
   render() {
     const { isLoaded, page } = this.state;
-    if (this.state.page == PAGE_RESULTS && !isLoaded) {
+    if (this.state.page === PAGE_RESULTS && !isLoaded) {
       return <div>Loading...</div>;
     } else {
       return <React.Fragment>{this.whatToDisplay(page)}</React.Fragment>;
