@@ -5,6 +5,9 @@
 ### react-typed
 This project uses react-typed to produce the typing effect. https://www.npmjs.com/package/react-typed
 
+### react-tooltip
+This project uses react-tooltip for tooltips on the radio buttons. https://github.com/wwayne/react-tooltip
+
 ## Bootstrap Theme
 ### Slate Theme
 This project is currently using the Slate Bootswatch theme. https://bootswatch.com/slate/
