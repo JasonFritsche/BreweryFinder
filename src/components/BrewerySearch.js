@@ -13,7 +13,9 @@ export default class BrewerySearch extends Component {
   };
 
   onSearchClick = () => {
-    this.props.handleSearch(this.state.search);
+    if(this.state.search !==  ""){
+        this.props.handleSearch(this.state.search);
+    } 
   };
 
   onSearchChange = event => {
