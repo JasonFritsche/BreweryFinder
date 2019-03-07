@@ -24,10 +24,11 @@ export default class BrewerySearch extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="jumbotron text-center">
+        <div>
           <div className="row">
             <div className="col">
-              <h1 className="Quicksand-Text Glow">Brewery Finder</h1>
+              <h1 className="Quicksand-Text">Brewery Finder</h1>
+               
               <Typed
                 strings={[
                   "Find a brewery in your hometown",
@@ -42,7 +43,7 @@ export default class BrewerySearch extends Component {
                 loop={true}
                 loopCount={30}
                 showCursor={true}
-                className={"h4"}
+                className={"typing-text"}
               />
             </div>
           </div>
@@ -65,7 +66,7 @@ export default class BrewerySearch extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="col text-center mt-2">
+            <div className="col text-center mt-2 radio-button">
               <RadioButtonContainer
                 val="city"
                 searchBy={this.state.searchBy}
@@ -79,6 +80,7 @@ export default class BrewerySearch extends Component {
                 handleSearchChange={this.onSearchChange}
                 identifier="stateRadio"
                 tooltip="Search by state"
+                
               />
               <RadioButtonContainer
                 val="name"
@@ -86,6 +88,7 @@ export default class BrewerySearch extends Component {
                 handleSearchChange={this.onSearchChange}
                 identifier="nameRadio"
                 tooltip="Search by brewery name"
+                
               />
               <RadioButtonContainer
                 val="type"
@@ -93,6 +96,7 @@ export default class BrewerySearch extends Component {
                 handleSearchChange={this.onSearchChange}
                 identifier="typeRadio"
                 tooltip="Types: micro, regional, brewpub, large, planning, bar, contract, proprietor"
+                
               />
 
               {/* commenting out the tag radio  button for now, as the API doesn't offer much support for this feature yet. Uncomment and test it yourself to see if more search results appear. If so, feel free to uncomment and commit the code to reintroduce the 'tag' radio button */}
