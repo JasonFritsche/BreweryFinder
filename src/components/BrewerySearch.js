@@ -1,27 +1,29 @@
-import React, { Component } from "react";
-import Typed from "react-typed";
-import RadioButtonContainer from "./RadioButtonContainer";
+import React, { Component } from 'react'
+import Typed from 'react-typed'
+import RadioButtonContainer from './RadioButtonContainer'
 
 export default class BrewerySearch extends Component {
   state = {
-    search: "",
-    searchBy: "city"
-  };
+    search: '',
+    searchBy: 'city'
+  }
 
   updateSearch = event => {
-    this.setState({ search: event.target.value });
-  };
+    this.setState({ search: event.target.value })
+  }
 
-  onSearchClick = () => {
-    if(this.state.search !==  ""){
-        this.props.handleSearch(this.state.search);
-    } 
-  };
+  onSearchClick = e => {
+    const { search } = this.state
+    if (search) {
+      this.props.handleSearch(search)
+    }
+    e.preventDefault()
+  }
 
   onSearchChange = event => {
-    this.setState({ searchBy: event.target.value });
-    this.props.searchBy(event.target.value);
-  };
+    this.setState({ searchBy: event.target.value })
+    this.props.searchBy(event.target.value)
+  }
 
   render() {
     return (
@@ -32,10 +34,10 @@ export default class BrewerySearch extends Component {
               <h1 className="Quicksand-Text Glow">Brewery Finder</h1>
               <Typed
                 strings={[
-                  "Find a brewery in your hometown",
-                  "Find your new hangout",
-                  "Find your new favorite beer",
-                  "Find the answer to your problems"
+                  'Find a brewery in your hometown',
+                  'Find your new hangout',
+                  'Find your new favorite beer',
+                  'Find the answer to your problems'
                 ]}
                 typeSpeed={70}
                 startDelay={1200}
@@ -44,7 +46,7 @@ export default class BrewerySearch extends Component {
                 loop={true}
                 loopCount={30}
                 showCursor={true}
-                className={"h4"}
+                className={'h4'}
               />
             </div>
           </div>
@@ -110,7 +112,7 @@ export default class BrewerySearch extends Component {
         </div>
         <footer className="mx-auto py-3">
           <div className="container text-center">
-            Powered By{" "}
+            Powered By{' '}
             <span className="text-muted">
               <a
                 href="https://www.openbrewerydb.org/"
@@ -123,6 +125,6 @@ export default class BrewerySearch extends Component {
           </div>
         </footer>
       </React.Fragment>
-    );
+    )
   }
 }
