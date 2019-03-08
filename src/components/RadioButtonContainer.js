@@ -1,5 +1,6 @@
 import React from "react";
 import ReactTooltip from "react-tooltip";
+import "./../App.css";
 
 const RadioButtonContainer = ({
   val,
@@ -11,7 +12,7 @@ const RadioButtonContainer = ({
   return (
     <div className="form-check form-check-inline">
       <input
-        className="form-check-input"
+        className="form-check-input radio-button"
         type="radio"
         name="searchByOptions"
         id="cityRadio"

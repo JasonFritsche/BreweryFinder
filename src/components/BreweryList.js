@@ -26,7 +26,7 @@ export default class BreweryList extends Component {
     return (
       <React.Fragment>
         <div className="pt-5">
-          <nav className="navbar fixed-top navbar-dark bg-dark py-2 mb-5">
+          <nav className="navbar">
             <Typed
               strings={["Time to drink", "Time to party", "Time to relax"]}
               typeSpeed={70}

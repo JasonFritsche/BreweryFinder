@@ -26,10 +26,11 @@ export default class BrewerySearch extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="jumbotron text-center">
+        <div>
           <div className="row">
             <div className="col">
-              <h1 className="Quicksand-Text Glow">Brewery Finder</h1>
+              <h1 className="Quicksand-Text">Brewery Finder</h1>
+               
               <Typed
                 strings={[
                   "Find a brewery in your hometown",
@@ -44,14 +45,14 @@ export default class BrewerySearch extends Component {
                 loop={true}
                 loopCount={30}
                 showCursor={true}
-                className={"h4"}
+                className={"typing-text"}
               />
             </div>
           </div>
         </div>
         <div className="container mb-5">
           <div className="row">
-            <div className="col-10 mx-auto col-md-8 mt-5 text-center">
+            <div className="col-09 mx-auto col-md-8 mt-6 text-center">
               <h2 className="text-capitalize">
                 search for breweries by {this.state.searchBy}
               </h2>
@@ -67,7 +68,7 @@ export default class BrewerySearch extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="col text-center mt-2">
+            <div className="radio-button form-check-inline">
               <RadioButtonContainer
                 val="city"
                 searchBy={this.state.searchBy}
@@ -81,6 +82,7 @@ export default class BrewerySearch extends Component {
                 handleSearchChange={this.onSearchChange}
                 identifier="stateRadio"
                 tooltip="Search by state"
+                
               />
               <RadioButtonContainer
                 val="name"
@@ -88,6 +90,7 @@ export default class BrewerySearch extends Component {
                 handleSearchChange={this.onSearchChange}
                 identifier="nameRadio"
                 tooltip="Search by brewery name"
+                
               />
               <RadioButtonContainer
                 val="type"
@@ -95,6 +98,7 @@ export default class BrewerySearch extends Component {
                 handleSearchChange={this.onSearchChange}
                 identifier="typeRadio"
                 tooltip="Types: micro, regional, brewpub, large, planning, bar, contract, proprietor"
+                
               />
 
               {/* commenting out the tag radio  button for now, as the API doesn't offer much support for this feature yet. Uncomment and test it yourself to see if more search results appear. If so, feel free to uncomment and commit the code to reintroduce the 'tag' radio button */}
