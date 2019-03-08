@@ -33,8 +33,10 @@ body {
 }
 
 .radio-button{
-  text-shadow: -1px -1px 0px rgba(255,255,255,2), 1px 1px 0px rgba(0,0,0,0.8);
+  text-shadow: -1px -1px 0px rgba(0,0,0,6), 1px 1px 0px rgba(255,255,255,6);
   font-size:18px;
+  backdrop-filter: contrast(80%);
+  padding-left: 400px;
 }
 
 .Kreon-Text {

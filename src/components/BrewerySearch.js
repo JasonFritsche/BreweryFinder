@@ -50,7 +50,7 @@ export default class BrewerySearch extends Component {
         </div>
         <div className="container mb-5">
           <div className="row">
-            <div className="col-10 mx-auto col-md-8 mt-5 text-center">
+            <div className="col-09 mx-auto col-md-8 mt-6 text-center">
               <h2 className="text-capitalize">
                 search for breweries by {this.state.searchBy}
               </h2>
@@ -66,7 +66,7 @@ export default class BrewerySearch extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="col text-center mt-2 radio-button">
+            <div className="radio-button form-check-inline">
               <RadioButtonContainer
                 val="city"
                 searchBy={this.state.searchBy}
