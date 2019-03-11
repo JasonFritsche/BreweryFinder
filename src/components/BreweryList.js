@@ -11,7 +11,8 @@ export default class BreweryList extends Component {
     if (!breweries.length) {
       return (
         <h1 className="Kreon-Text text-center">
-          Sorry, no results found for {searchTerm} within the {searchParam} filter.
+          Sorry, no results found for {searchTerm} within the {searchParam}{" "}
+          filter.
         </h1>
       );
     } else {
@@ -25,7 +26,7 @@ export default class BreweryList extends Component {
     const { breweries, searchTerm, searchParam } = this.props;
     return (
       <React.Fragment>
-        <div className="pt-5">
+        <div className="mb-3">
           <nav className="navbar">
             <Typed
               strings={["Time to drink", "Time to party", "Time to relax"]}
@@ -51,7 +52,9 @@ export default class BreweryList extends Component {
         </div>
 
         <div className="container my-5">
-          <div className="row">{this.displayResult(breweries, searchTerm, searchParam)}</div>
+          <div className="row">
+            {this.displayResult(breweries, searchTerm, searchParam)}
+          </div>
         </div>
       </React.Fragment>
     );
