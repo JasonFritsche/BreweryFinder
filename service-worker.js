@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/BreweryFinder/precache-manifest.3a6bdbee15c029d307715c77fbd686ec.js"
+  "/BreweryFinder/precache-manifest.3d4bdc7bc0023d1c350b365de28458e9.js"
 );
 
 workbox.clientsClaim();
