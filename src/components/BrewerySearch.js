@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import Typed from 'react-typed'
 import RadioButtonContainer from './RadioButtonContainer'
+import Modal from 'react-bootstrap/Modal'
 
 export default class BrewerySearch extends Component {
   state = {
     search: '',
-    searchBy: 'city'
-  }
+    searchBy: 'city',
+    show: false
+  };
 
   updateSearch = event => {
     this.setState({ search: event.target.value })
@@ -14,8 +16,15 @@ export default class BrewerySearch extends Component {
 
   onSearchClick = e => {
     const { search } = this.state
-    if (search) {
-      this.props.handleSearch(search)
+
+    if(search.length === 0){
+      /* check if the search field is empty
+      , get reference to the form control
+      , then toggle empty effect */
+    }else{
+      if (search) {
+        this.props.handleSearch(search)
+      }
     }
     e.preventDefault()
   }
@@ -23,6 +32,10 @@ export default class BrewerySearch extends Component {
   onSearchChange = event => {
     this.setState({ searchBy: event.target.value })
     this.props.searchBy(event.target.value)
+  }
+
+  modalToggle = () => {
+    this.setState({ show: !this.state.show });
   }
 
   render() {
@@ -70,7 +83,17 @@ export default class BrewerySearch extends Component {
                   placeholder="Search here..."
                   onChange={this.updateSearch}
                 />
-                <button className="btn btn-primary mx-2">Search</button>
+                <button className="btn btn-primary mx-2" onClick={this.modalToggle}>Search</button>
+                <Modal size="sm" show={this.state.show} aria-labelledby="example-modal-sizes-title-sm">
+                  <Modal.Header closeButton onClick={this.modalToggle}>
+                  <Modal.Title id="example-modal-sizes-title-sm">
+                    Empty Search Bar
+                  </Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    Yo! search bar can not be empty, please type something in.
+                  </Modal.Body>
+                </Modal>
               </form>
             </div>
           </div>
