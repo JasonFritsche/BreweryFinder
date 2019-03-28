@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Typed from 'react-typed'
 import RadioButtonContainer from './RadioButtonContainer'
 
 export default class BrewerySearch extends Component {
   state = {
     search: '',
-    searchBy: 'city'
+    searchFilter: 'city'
   }
 
   updateSearch = event => {
@@ -14,18 +15,21 @@ export default class BrewerySearch extends Component {
 
   onSearchClick = e => {
     const { search } = this.state
+    const { handleSearch } = this.props
     if (search) {
-      this.props.handleSearch(search)
+      handleSearch(search)
     }
     e.preventDefault()
   }
 
   onSearchChange = event => {
-    this.setState({ searchBy: event.target.value })
-    this.props.searchBy(event.target.value)
+    const { searchBy } = this.props
+    this.setState({ searchFilter: event.target.value })
+    searchBy(event.target.value)
   }
 
   render() {
+    const { searchFilter } = this.state
     return (
       <React.Fragment>
         <div>
@@ -49,10 +53,10 @@ export default class BrewerySearch extends Component {
                 startDelay={1200}
                 backDelay={3000}
                 backSpeed={60}
-                loop={true}
+                loop
                 loopCount={30}
-                showCursor={true}
-                className={"typing-text"}
+                showCursor
+                className="typing-text"
               />
             </div>
           </div>
@@ -61,7 +65,7 @@ export default class BrewerySearch extends Component {
           <div className="row">
             <div className="col-09 mx-auto col-md-8 mt-6 text-center">
               <h2 className="text-capitalize">
-                search for breweries by {this.state.searchBy}
+                search for breweries by {searchFilter}
               </h2>
               <form className="form input-group" onSubmit={this.onSearchClick}>
                 <input
@@ -70,7 +74,9 @@ export default class BrewerySearch extends Component {
                   placeholder="Search here..."
                   onChange={this.updateSearch}
                 />
-                <button className="btn btn-primary mx-2">Search</button>
+                <button type="submit" className="btn btn-primary mx-2">
+                  Search
+                </button>
               </form>
             </div>
           </div>
@@ -78,28 +84,28 @@ export default class BrewerySearch extends Component {
             <div className="radio-button form-check-inline">
               <RadioButtonContainer
                 val="city"
-                searchBy={this.state.searchBy}
+                searchBy={searchFilter}
                 handleSearchChange={this.onSearchChange}
                 identifier="cityRadio"
                 tooltip="Search by city"
               />
               <RadioButtonContainer
                 val="state"
-                searchBy={this.state.searchBy}
+                searchBy={searchFilter}
                 handleSearchChange={this.onSearchChange}
                 identifier="stateRadio"
                 tooltip="Search by state"
               />
               <RadioButtonContainer
                 val="name"
-                searchBy={this.state.searchBy}
+                searchBy={searchFilter}
                 handleSearchChange={this.onSearchChange}
                 identifier="nameRadio"
                 tooltip="Search by brewery name"
               />
               <RadioButtonContainer
                 val="type"
-                searchBy={this.state.searchBy}
+                searchBy={searchFilter}
                 handleSearchChange={this.onSearchChange}
                 identifier="typeRadio"
                 tooltip="Types: micro, regional, brewpub, large, planning, bar, contract, proprietor"
@@ -133,4 +139,9 @@ export default class BrewerySearch extends Component {
       </React.Fragment>
     )
   }
+}
+
+BrewerySearch.propTypes = {
+  handleSearch: PropTypes.func.isRequired,
+  searchBy: PropTypes.func.isRequired
 }

@@ -5,12 +5,27 @@
   "env": {
     "browser": true,
     "es6": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
     "ecmaVersion": 2018
+  },
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "import/imports-first": ["error", "absolute-first"],
+    "import/newline-after-import": "error",
+    "react/sort-comp": 0,
+    "class-methods-use-this": 0,
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        "required": { "every": "id" },
+        "allowChildren": true
+      }
+    ]
   }
 }

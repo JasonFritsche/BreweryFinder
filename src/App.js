@@ -14,6 +14,13 @@ class App extends Component {
     page: PAGE_HOME
   }
 
+  backToSearch = () => {
+    this.setState({
+      searchByParam: 'city',
+      page: PAGE_HOME
+    })
+  }
+
   async fetchBreweryData(searchTerm, searchByParam) {
     try {
       const url = `https://api.openbrewerydb.org/breweries?by_${searchByParam}=${searchTerm}`
@@ -26,20 +33,6 @@ class App extends Component {
     } catch (error) {
       console.log(error)
     }
-  }
-
-  // Exclude breweries that contains "Brewery In Planning"
-  filterResults = data =>
-    data.filter(
-      item =>
-        !item.name.toLowerCase().includes('Brewery In Planning'.toLowerCase())
-    )
-
-  backToSearch = () => {
-    this.setState({
-      searchByParam: 'city',
-      page: PAGE_HOME
-    })
   }
 
   // searchTerm is the value from the input/search bar
@@ -64,6 +57,13 @@ class App extends Component {
     }
   }
 
+  // Exclude breweries that contains "Brewery In Planning"
+  filterResults = data =>
+    data.filter(
+      item =>
+        !item.name.toLowerCase().includes('Brewery In Planning'.toLowerCase())
+    )
+
   whatToDisplay = page => {
     const { breweries, searchTerm, searchByParam } = this.state
     if (page === PAGE_RESULTS) {
@@ -75,14 +75,13 @@ class App extends Component {
           searchParam={searchByParam}
         />
       )
-    } else {
-      return (
-        <BrewerySearch
-          handleSearch={this.handleSearch}
-          searchBy={this.searchBy}
-        />
-      )
     }
+    return (
+      <BrewerySearch
+        handleSearch={this.handleSearch}
+        searchBy={this.searchBy}
+      />
+    )
   }
 
   render() {
