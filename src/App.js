@@ -7,12 +7,33 @@ const PAGE_HOME = 'home'
 const PAGE_RESULTS = 'search_results'
 
 class App extends Component {
+
+  constructor(){
+    super();
+    this.fetchAllBreweryData();
+  }
+
   state = {
+    allBreweries:[],
     breweries: [],
     searchTerm: 'Boston',
     searchByParam: 'city',
     page: PAGE_HOME
   }
+
+  async fetchAllBreweryData(){
+    try {
+      const allURL = `https://api.openbrewerydb.org/breweries`
+      const allData = await fetch(allURL)
+      const jsonallData = await allData.json()
+      const cleanAllData = this.filterResults(jsonallData)
+      this.setState({
+        allBreweries: cleanAllData
+      })
+  }catch (error) {
+    console.log(error)
+  }
+}
 
   async fetchBreweryData(searchTerm, searchByParam) {
     try {
@@ -65,7 +86,7 @@ class App extends Component {
   }
 
   whatToDisplay = page => {
-    const { breweries, searchTerm, searchByParam } = this.state
+    const { allBreweries, breweries, searchTerm, searchByParam } = this.state
     if (page === PAGE_RESULTS) {
       return (
         <BreweryList
@@ -78,6 +99,7 @@ class App extends Component {
     } else {
       return (
         <BrewerySearch
+          allBreweries={allBreweries}
           handleSearch={this.handleSearch}
           searchBy={this.searchBy}
         />

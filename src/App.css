@@ -72,3 +72,14 @@ body {
   margin-bottom: 10px;
   background-color: black;
 }
+
+.searchList{
+  position: relative;
+  background-color: white;
+  color: black;
+  height: 40px;
+  width: 636px;
+  border-radius: 5px;
+  padding-top:8px;
+  font-size: 15px;
+}
