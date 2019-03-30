@@ -14,8 +14,11 @@ export default class BrewerySearch extends Component {
 
   onSearchClick = e => {
     const { search } = this.state
-    if (search) {
-      this.props.handleSearch(search)
+    let searchTrim = search.trim();
+    if (searchTrim.length > 1) {
+      this.props.handleSearch(searchTrim)
+    }else{
+      alert("Please enter something to search.");
     }
     e.preventDefault()
   }
