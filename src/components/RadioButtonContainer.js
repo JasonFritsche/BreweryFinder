@@ -27,7 +27,7 @@ const RadioButtonContainer = ({
       >
         {val}
       </label>
-      <ReactTooltip />
+      <ReactTooltip place="bottom" />
     </div>
   );
 };
