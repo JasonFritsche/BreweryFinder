@@ -1,6 +1,7 @@
-import React from "react";
-import ReactTooltip from "react-tooltip";
-import "./../App.css";
+import React from 'react'
+import ReactTooltip from 'react-tooltip'
+import PropTypes from 'prop-types'
+import '../App.css'
 
 const RadioButtonContainer = ({
   val,
@@ -15,21 +16,29 @@ const RadioButtonContainer = ({
         className="form-check-input radio-button"
         type="radio"
         name="searchByOptions"
-        id="cityRadio"
+        id={identifier}
         value={val}
         onChange={handleSearchChange}
         checked={searchBy === val}
       />
       <label
         className="form-check-label text-capitalize"
-        htmlFor="cityRadio"
+        htmlFor={identifier}
         data-tip={tooltip}
       >
         {val}
       </label>
       <ReactTooltip />
     </div>
-  );
-};
+  )
+}
 
-export default RadioButtonContainer;
+RadioButtonContainer.propTypes = {
+  val: PropTypes.string.isRequired,
+  tooltip: PropTypes.string.isRequired,
+  handleSearchChange: PropTypes.func.isRequired,
+  searchBy: PropTypes.string.isRequired,
+  identifier: PropTypes.string.isRequired
+}
+
+export default RadioButtonContainer

@@ -1,43 +1,54 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 export default class Brewery extends Component {
-  displayWebsiteUrl(website_url) {
-    if (website_url) {
-      return (
-        <a
-          className="btn btn-primary"
-          target="_blank"
-          rel="noopener noreferrer"
-          href={website_url}
-          onMouseDown={e => e.preventDefault()}
-        >
-          Check Them Out
-        </a>
-      );
-    }
+  displayWebsiteUrl(websiteUrl) {
+    return (
+      <a
+        className="btn btn-primary"
+        target="_blank"
+        rel="noopener noreferrer"
+        href={websiteUrl}
+        onMouseDown={e => e.preventDefault()}
+      >
+        Check Them Out
+      </a>
+    )
   }
 
   render() {
-    const { city, name, brewery_type, state, street, website_url } = this.props.brewery
+    const {
+      brewery: {
+        city,
+        name,
+        brewery_type: breweryType,
+        state,
+        street,
+        website_url: websiteUrl
+      }
+    } = this.props
+
     return (
       <div className="col-10 mx-auto col-md-6 col-lg-4 my-3">
         <div className="card h-100">
           <div className="card-body flex-column h-100">
-            <h5 className="Kreon-Text text-capitalize">
-              {name}
-            </h5>
+            <h5 className="Kreon-Text text-capitalize">{name}</h5>
             <h6 className="text-capitalize">
               <strong>Type: </strong>
-              {brewery_type}
+              {breweryType}
             </h6>
             <h6 className="text-capitalize">{street}</h6>
             <h6 className="text-capitalize">
               {city}, {state}
             </h6>
-            {this.displayWebsiteUrl(website_url)}
+            {this.displayWebsiteUrl(websiteUrl)}
           </div>
         </div>
       </div>
-    );
+    )
   }
+}
+
+Brewery.propTypes = {
+  brewery: PropTypes.objectOf(PropTypes.string).isRequired
 }
