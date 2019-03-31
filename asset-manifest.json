@@ -1,7 +1,7 @@
 {
   "main.css": "/BreweryFinder/static/css/main.32190a9b.chunk.css",
-  "main.js": "/BreweryFinder/static/js/main.08c5332f.chunk.js",
-  "main.js.map": "/BreweryFinder/static/js/main.08c5332f.chunk.js.map",
+  "main.js": "/BreweryFinder/static/js/main.fc4a050e.chunk.js",
+  "main.js.map": "/BreweryFinder/static/js/main.fc4a050e.chunk.js.map",
   "static/js/1.f239021a.chunk.js": "/BreweryFinder/static/js/1.f239021a.chunk.js",
   "static/js/1.f239021a.chunk.js.map": "/BreweryFinder/static/js/1.f239021a.chunk.js.map",
   "runtime~main.js": "/BreweryFinder/static/js/runtime~main.20da10eb.js",
@@ -9,6 +9,6 @@
   "static/media/App.css": "/BreweryFinder/static/media/Beer.30fc55af.jpg",
   "static/css/main.32190a9b.chunk.css.map": "/BreweryFinder/static/css/main.32190a9b.chunk.css.map",
   "index.html": "/BreweryFinder/index.html",
-  "precache-manifest.3d4bdc7bc0023d1c350b365de28458e9.js": "/BreweryFinder/precache-manifest.3d4bdc7bc0023d1c350b365de28458e9.js",
+  "precache-manifest.d5530df52f9f9c5c63cf57277ece3357.js": "/BreweryFinder/precache-manifest.d5530df52f9f9c5c63cf57277ece3357.js",
   "service-worker.js": "/BreweryFinder/service-worker.js"
 }
