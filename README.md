@@ -1,150 +1,42 @@
-# Brewery Finder
+# [Brewery Finder](https://jasonfritsche.github.io/BreweryFinder)
 
-## Dependencies
+A react app that users can use to find breweries across the US via the data from [opendbbrewery](https://www.openbrewerydb.org/).
 
-### react-typed
-This project uses react-typed to produce the typing effect. https://www.npmjs.com/package/react-typed
+## Contribute [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-### react-tooltip
-This project uses react-tooltip for tooltips on the radio buttons. https://github.com/wwayne/react-tooltip
+Please feel free to contribute to this open source project. First timers are more than welcome. Take a look at the open issues under the [issues tab](https://github.com/JasonFritsche/BreweryFinder/issues). If you identify a bug, or would like to implement a feature that isn't posted under the issues, please feel free to submit a new issue. Also, if you see anything that needs to be updated in the README file, you're more than welcome to update it. **For issues you want to work on please assign yourself to it, or just mention in a comment under the issue that you have claimed it.**
 
-## Bootstrap Theme
-### Slate Theme
-This project is currently using the Slate Bootswatch theme. https://bootswatch.com/slate/
+**Working on your first Pull Request?** You can learn how from this _free_ series [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github).
 
-## Anyone can contribute
-Please feel free to contribute to this open source project. First timers are more than welcome. Take a look at the open issues under the issues tab. If you identify a bug, or would like to implement a feature that isn't posted under the issues feel free to submit a new issue. Also, if you see anything that needs to be updated in the readme file, you're more than welcome to update it.
+### Getting Started
 
-### Please claim the issue that you want to work on in the comments of that issue. 
+1. Fork the project.
+2. Clone your fork.
+3. Make sure you are in the right directory: `cd BreweryFinder`.
+4. Add an `upstream` remote for keeping your local repository up-to-date:
+   > `git remote add upstream git@github.com:JasonFritsche/BreweryFinder.git`
+5. Run `npm install` to install the project dependencies.
+6. Run `npm start` to start your dev environment.
+7. See the app running on [localhost:3000](http://localhost:3000).
 
-# How to get started
+### Creating a new PR
 
-### Git Resources
-You may find some or all of these resources helpful if you're new to git
+1. Make sure you are on the `master` branch, and you have pulled the latest changes.
 
-* https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line
-* https://www.youtube.com/watch?v=SWYqp7iY_Tc
-* https://www.git-tower.com/learn/git/ebook/en/command-line/appendix/command-line-101
-* http://rogerdudler.github.io/git-guide/
+   > `git checkout master && git pull upstream master`
 
-## Fork
+2. Install any new dependencies: `npm install`.
 
-Click the fork button to get your copy of the repo. The fork button is in the top-right area of this page. A fork is your own copy of the repository. This means you'll have a "copy" of this repo in your list of Github repositories.
+3. Create a new branch off of the `master` branch.
 
-## Clone 
+   > `git checkout -b [NEW BRANCH NAME]`
 
-After you fork the repo you will need to clone it to your machine. Go to your GitHub repositories and open the forked BreweryFinder repository. Look for the "Clone or download" button and copy the url.
+   > **Branch naming conventions:** `fix/[BRANCH]` for bug fixes, `feat/[BRANCH]` for new features, `doc/[BRANCH]` for changes to documents. The `[BRANCH]` portion should be kebab case. For example, if you want to update the README.md file, your branch could be called `doc/update-readme`.
 
-Open your terminal and run the following git command:
+4. Make changes and fix any warnings and/or errors that arise in the console.
+5. Commit your changes: `git add . && git commit -m [YOUR COMMIT MESSAGE]`.
 
-`git clone "paste the copied url here"`
+   > The subject of a commit message (the first line) should be 72 characters or less. If you need more room for a longer explanation of your changes, you can add a blank line below the subject and write a commit body. The commit message should be in present-imperative tense ("update README.md" rather than "updates" or "updated").
 
-_Note: Make sure you navigate to the area in your directory where you want to save the local repository_
-
-## Set the Upstream repository
-
-In order to keep up with the latest changes in the repo you should set the upstream repository for your local clone. 
-If you haven't done so already, in your terminal change to the BreweryFinder directory/folder that was created when you ran the `git clone` command. Use the following command to change in to that directory: `cd BrewryFinder`
-
-Now set the upstream remote with the following command:
-* `git remote add upstream https://github.com/JasonFritsche/BreweryFinder.git`
-
-## Create a Branch
-
-Now that you've cloned the repository, create a branch for the issue or feature you plan on working on. 
-First, enter the following git command to make sure you have all of the current version of BreweryFinder:
-* `git fetch upstream`
-
-Now create a new branch with the follow git command:
-* `git checkout -b <enter a branch name here without the brackets> upstream/master`
-
-## Install dependencies
-
-Use the `npm install` command in your terminal to install of of the project's dependencies. 
-
-## Run the project locally
-
-Run `npm start` to run your local copy of the project on a local server.
-
-## Commit changes
-
-When you're ready to commit your changes you'll want to do the following:
-- Add the changes to your commit by running `git add .`
-- Commit the changes by running `git commit -m "relevant message here"`
-- Push the changes to GitHub by running ` git push origin <your branch name here>`
-
-## Open a Pull Request
-Go to your BreweryFinder repository on GitHub and click the "Compare and pull request" button. Describe what changes you made, and what issue number they are solving. Then click the "Create pull request" button.
-
-
-------------------------------------------------
-# React Stuff
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+6. Push your branch to your fork: `git push -u origin [BRANCH NAME]`.
+7. Open a new PR against the `master` branch from your fork using the GitHub user interface.
