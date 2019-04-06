@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import Typed from 'react-typed'
 import RadioButtonContainer from './RadioButtonContainer'
+import SearchAlert from './SearchAlert.js'
+
 
 export default class BrewerySearch extends Component {
   state = {
     search: '',
-    searchFilter: 'city'
+    searchBy: 'city',
+    alertMessage:''
   }
 
   updateSearch = event => {
@@ -15,21 +17,28 @@ export default class BrewerySearch extends Component {
 
   onSearchClick = e => {
     const { search } = this.state
-    const { handleSearch } = this.props
-    if (search) {
-      handleSearch(search)
+    let searchTrim = search.trim();
+    if (searchTrim.length > 1) {
+      this.props.handleSearch(searchTrim)
+    }else{
+      this.setState({ alertMessage:'true'});
+      setTimeout(
+        function() {
+          this.setState({ alertMessage:'false'});
+        }
+        .bind(this),
+        3000
+      );
     }
     e.preventDefault()
   }
 
   onSearchChange = event => {
-    const { searchBy } = this.props
-    this.setState({ searchFilter: event.target.value })
-    searchBy(event.target.value)
+    this.setState({ searchBy: event.target.value })
+    this.props.searchBy(event.target.value)
   }
 
   render() {
-    const { searchFilter } = this.state
     return (
       <React.Fragment>
         <div>
@@ -53,10 +62,10 @@ export default class BrewerySearch extends Component {
                 startDelay={1200}
                 backDelay={3000}
                 backSpeed={60}
-                loop
+                loop={true}
                 loopCount={30}
-                showCursor
-                className="typing-text"
+                showCursor={true}
+                className={"typing-text"}
               />
             </div>
           </div>
@@ -65,7 +74,7 @@ export default class BrewerySearch extends Component {
           <div className="row">
             <div className="col-09 mx-auto col-md-8 mt-6 text-center">
               <h2 className="text-capitalize">
-                search for breweries by {searchFilter}
+                search for breweries by {this.state.searchBy}
               </h2>
               <form className="form input-group" onSubmit={this.onSearchClick}>
                 <input
@@ -74,38 +83,43 @@ export default class BrewerySearch extends Component {
                   placeholder="Search here..."
                   onChange={this.updateSearch}
                 />
-                <button type="submit" className="btn btn-primary mx-2">
-                  Search
-                </button>
+                <button className="btn btn-primary mx-2">Search</button>
               </form>
             </div>
           </div>
+            {/* Alert user for empty search */}
+          <div className="row">
+            <div className="col-09 mx-auto mt-6 text-center">
+                {this.state.alertMessage==="true"?<SearchAlert/>:null}
+            </div>
+          </div>
+
           <div className="row">
             <div className="radio-button form-check-inline">
               <RadioButtonContainer
                 val="city"
-                searchBy={searchFilter}
+                searchBy={this.state.searchBy}
                 handleSearchChange={this.onSearchChange}
                 identifier="cityRadio"
                 tooltip="Search by city"
               />
               <RadioButtonContainer
                 val="state"
-                searchBy={searchFilter}
+                searchBy={this.state.searchBy}
                 handleSearchChange={this.onSearchChange}
                 identifier="stateRadio"
                 tooltip="Search by state"
               />
               <RadioButtonContainer
                 val="name"
-                searchBy={searchFilter}
+                searchBy={this.state.searchBy}
                 handleSearchChange={this.onSearchChange}
                 identifier="nameRadio"
                 tooltip="Search by brewery name"
               />
               <RadioButtonContainer
                 val="type"
-                searchBy={searchFilter}
+                searchBy={this.state.searchBy}
                 handleSearchChange={this.onSearchChange}
                 identifier="typeRadio"
                 tooltip="Types: micro, regional, brewpub, large, planning, bar, contract, proprietor"
@@ -139,9 +153,4 @@ export default class BrewerySearch extends Component {
       </React.Fragment>
     )
   }
-}
-
-BrewerySearch.propTypes = {
-  handleSearch: PropTypes.func.isRequired,
-  searchBy: PropTypes.func.isRequired
 }
