@@ -1,35 +1,47 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Typed from 'react-typed'
+import Alert from 'react-bootstrap/Alert'
 import RadioButtonContainer from './RadioButtonContainer'
 
 export default class BrewerySearch extends Component {
   state = {
     search: '',
-    searchFilter: 'city'
+    searchFilter: 'city',
+    showAlert: false
   }
 
-  updateSearch = event => {
-    this.setState({ search: event.target.value })
+  updateSearch = e => {
+    this.setState({ search: e.target.value })
   }
 
   onSearchClick = e => {
     const { search } = this.state
+    const userInput = search.trim()
     const { handleSearch } = this.props
-    if (search) {
-      handleSearch(search)
+    if (userInput) {
+      handleSearch(userInput)
+    } else {
+      this.setState({ showAlert: true })
+      setTimeout(() => {
+        this.setState({ showAlert: false })
+      }, 2000)
     }
     e.preventDefault()
   }
 
-  onSearchChange = event => {
+  onSearchChange = e => {
     const { searchBy } = this.props
-    this.setState({ searchFilter: event.target.value })
-    searchBy(event.target.value)
+    this.setState({ searchFilter: e.target.value })
+    searchBy(e.target.value)
+  }
+
+  onCloseAlert = () => {
+    this.setState({ showAlert: false })
   }
 
   render() {
-    const { searchFilter } = this.state
+    const { searchFilter, showAlert } = this.state
     return (
       <React.Fragment>
         <div>
@@ -78,6 +90,11 @@ export default class BrewerySearch extends Component {
                   Search
                 </button>
               </form>
+              {showAlert && (
+                <Alert variant="danger" dismissible onClose={this.onCloseAlert}>
+                  <p>A search value is required.</p>
+                </Alert>
+              )}
             </div>
           </div>
           <div className="row">
