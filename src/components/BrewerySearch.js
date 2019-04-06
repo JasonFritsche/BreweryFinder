@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Typed from 'react-typed'
-import Alert from 'react-bootstrap/Alert'
+import * as Alert from 'react-bootstrap/Alert'
 import RadioButtonContainer from './RadioButtonContainer'
 
 export default class BrewerySearch extends Component {
@@ -25,7 +25,7 @@ export default class BrewerySearch extends Component {
       this.setState({ showAlert: true })
       setTimeout(() => {
         this.setState({ showAlert: false })
-      }, 2000)
+      }, 1500)
     }
     e.preventDefault()
   }
