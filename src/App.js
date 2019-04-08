@@ -61,7 +61,7 @@ class App extends Component {
   filterResults = data =>
     data.filter(
       item =>
-        !item.name.toLowerCase().includes('Brewery In Planning'.toLowerCase())
+        !item.name.toLowerCase().includes('brewery in planning')
     )
 
   whatToDisplay = page => {
