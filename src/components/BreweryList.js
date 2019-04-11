@@ -1,15 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import Typed from 'react-typed'
 import Brewery from './Brewery'
 
-export default class BreweryList extends Component {
-  onClick() {
-    const { backToSearch } = this.props
+const BreweryList = (props) => {
+  const onClick = () => {
+    const { backToSearch } = props
     backToSearch()
   }
 
-  displayResult(breweries, searchTerm, searchParam) {
+  const displayResult = (breweries, searchTerm, searchParam) => {
     if (!breweries.length) {
       return (
         <h1 className="Kreon-Text text-center">
@@ -23,43 +23,41 @@ export default class BreweryList extends Component {
     })
   }
 
-  render() {
-    const { breweries, searchTerm, searchParam } = this.props
-    return (
-      <React.Fragment>
-        <div className="mb-3">
-          <nav className="navbar">
-            <Typed
-              strings={['Time to drink', 'Time to party', 'Time to relax']}
-              typeSpeed={70}
-              startDelay={1200}
-              backDelay={3000}
-              backSpeed={60}
-              loop
-              loopCount={30}
-              showCursor
-              className="h4 mx-auto Quicksand-Text"
-            />
-            <form className="form-inline my-2 my-lg-0">
-              <button
-                type="button"
-                className="btn btn-outline-info"
-                onClick={() => this.onClick()}
-              >
-                Back to Search
+  const { breweries, searchTerm, searchParam } = props
+  return (
+    <React.Fragment>
+      <div className="mb-3">
+        <nav className="navbar">
+          <Typed
+            strings={['Time to drink', 'Time to party', 'Time to relax']}
+            typeSpeed={70}
+            startDelay={1200}
+            backDelay={3000}
+            backSpeed={60}
+            loop
+            loopCount={30}
+            showCursor
+            className="h4 mx-auto Quicksand-Text"
+          />
+          <form className="form-inline my-2 my-lg-0">
+            <button
+              type="button"
+              className="btn btn-outline-info"
+              onClick={() => onClick()}
+            >
+              Back to Search
               </button>
-            </form>
-          </nav>
-        </div>
+          </form>
+        </nav>
+      </div>
 
-        <div className="container my-5">
-          <div className="row">
-            {this.displayResult(breweries, searchTerm, searchParam)}
-          </div>
+      <div className="container my-5">
+        <div className="row">
+          {displayResult(breweries, searchTerm, searchParam)}
         </div>
-      </React.Fragment>
-    )
-  }
+      </div>
+    </React.Fragment>
+  )
 }
 
 BreweryList.propTypes = {
@@ -68,3 +66,5 @@ BreweryList.propTypes = {
   searchParam: PropTypes.string.isRequired,
   backToSearch: PropTypes.func.isRequired
 }
+
+export default BreweryList;
