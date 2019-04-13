@@ -50,5 +50,5 @@ export default class Brewery extends Component {
 }
 
 Brewery.propTypes = {
-  brewery: PropTypes.objectOf(PropTypes.string).isRequired
+  brewery: PropTypes.objectOf(PropTypes.any).isRequired
 }
