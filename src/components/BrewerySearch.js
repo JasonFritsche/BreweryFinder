@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import Typed from 'react-typed'
 import * as Alert from 'react-bootstrap/Alert'
 import RadioButtonContainer from './RadioButtonContainer'
+const img = require('../public/cheers.png')
+const githublogo = require('../public/github-logo.png')
 
 export default class BrewerySearch extends Component {
   state = {
@@ -48,12 +50,13 @@ export default class BrewerySearch extends Component {
           <div className="row">
             <div className="col">
               <h1 className="Quicksand-Text Glow text-center">
-                Brewery Finder
+                <img src={img} id="vector-img" />{' '}
+                <span id="underline">Brew</span>ery Finder
               </h1>
             </div>
           </div>
           <div className="row">
-            <div className="col text-center">
+            <div className="col text-center mb-5">
               <Typed
                 strings={[
                   'Find a brewery in your hometown',
@@ -76,7 +79,7 @@ export default class BrewerySearch extends Component {
         <div className="container mb-5">
           <div className="row">
             <div className="col-09 mx-auto col-md-8 mt-6 text-center">
-              <h2 className="text-capitalize">
+              <h2 className="text-capitalize" id="sub-text">
                 search for breweries by {searchFilter}
               </h2>
               <form className="form input-group" onSubmit={this.onSearchClick}>
@@ -84,6 +87,7 @@ export default class BrewerySearch extends Component {
                   className="form-control"
                   type="text"
                   placeholder="Search here..."
+                  id="search-bar"
                   onChange={this.updateSearch}
                 />
                 <button type="submit" className="btn btn-primary mx-2">
@@ -96,6 +100,9 @@ export default class BrewerySearch extends Component {
                 </Alert>
               )}
             </div>
+            {/* <div className="col-md-4">
+              <img id="beer-vector" src={img} />
+            </div> */}
           </div>
           <div className="row">
             <div className="radio-button form-check-inline">
@@ -141,6 +148,13 @@ export default class BrewerySearch extends Component {
         </div>
         <footer className="mx-auto py-3">
           <div className="container text-center">
+            <a
+              href="https://github.com/JasonFritsche/BreweryFinder"
+              className="d-block"
+              target="_blank"
+            >
+              Contribute <img src={githublogo} id="logo" />
+            </a>
             Powered By{' '}
             <span className="text-muted">
               <a

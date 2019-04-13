@@ -1,59 +1,99 @@
-@import url("https://fonts.googleapis.com/css?family=Kreon|Quicksand");
+@import url('https://fonts.googleapis.com/css?family=Kreon|Quicksand|Pacifico|Lobster|Raleway:600,800');
 
 body {
-  background-color: #c0c0c0;
-  background-image: url("./public/Beer.jpg");
-  opacity: 0.9;
+  background: linear-gradient(to right, #2b344e, #10172b);
+  /* background-image: url("./public/Beer.jpg"); */
+  /* opacity: 0.9; */
 
   /* Full height */
   height: 100%;
 
   /* Center and scale the image nicely */
-  background-position: center;
+  /* background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 }
 
 .Quicksand-Text {
-  font-family: "Quicksand", sans-serif !important;
+  color: #ffff;
+  font-weight: 800;
+  font-family: 'Raleway', sans-serif !important;
   text-align: top;
-  text-transform: uppercase;
+  text-transform: capitalize;
   text-indent: 50px;
-  text-shadow: -1px -1px 0px rgba(255, 255, 255, 2),
-    1px 1px 0px rgba(0, 0, 0, 2);
+  /* text-shadow: -1px -1px 0px rgba(255, 255, 255, 2),
+    1px 1px 0px rgba(0, 0, 0, 2); */
   padding-top: 100px;
   font-size: 50px;
 }
-
-.typing-text {
-  text-shadow: -1px -1px 0px rgba(255, 255, 255, 2),
-    1px 1px 0px rgba(0, 0, 0, 0.9);
-  color: #00b6ff;
-  opacity: 0.9;
-  font-size: 2.2em;
-  font-family: "Quicksand", sans-serif !important;
+#underline {
+  border-bottom: 2px solid rgb(235, 104, 104);
 }
 
+.typing-text {
+  font-family: 'Lobster', cursive;
+  color: rgb(235, 104, 104);
+  opacity: 0.9;
+  font-size: 1.5em;
+}
+
+#sub-text {
+  line-height: 2em;
+  color: #dedfe4;
+  font-family: 'Raleway';
+  font-size: 1em;
+}
+#search-bar {
+  color: #dedfe4;
+  border: 3px solid rgba(44, 72, 142, 1);
+  box-shadow: -2px -1px 20px -1px rgba(44, 72, 142, 1);
+  background: linear-gradient(to right, #2b344e, #10172b);
+  border-radius: 50px;
+}
+.btn {
+  border: 3px solid rgba(44, 72, 142, 1);
+  box-shadow: -2px -1px 20px -1px rgba(44, 72, 142, 1);
+  padding: 0 20px 0 20px;
+  border-radius: 50px;
+  background: linear-gradient(to right, #1eb7fb, #7b44e3);
+}
+#vector-img {
+  height: 80px;
+  margin-top: -30px;
+  margin-left: -120px;
+}
 .radio-button {
-  text-shadow: -1px -1px 0px rgba(0, 0, 0, 6),
-    1px 1px 0px rgba(255, 255, 255, 6);
-  font-size: 18px;
+  font-family: 'Raleway';
+  color: #dedfe4;
+  font-size: 1em;
   backdrop-filter: contrast(80%);
   padding-left: 400px;
 }
-
+#logo {
+  height: 20px;
+}
+footer {
+  font-family: 'Raleway';
+  background: rgb(235, 104, 104);
+  color: #000;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+}
 .Kreon-Text {
-  font-family: "Kreon", serif !important;
+  font-family: 'Kreon', serif !important;
 }
 
-.Glow {
+/* .Glow {
   color: #61dafb;
   font-size: 4.5em;
   color: #00b6ff;
   -webkit-animation: glow 1s ease-in-out infinite alternate;
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;
-}
+} */
 
 @keyframes glow {
   from {
