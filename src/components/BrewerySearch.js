@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Typed from 'react-typed'
 import * as Alert from 'react-bootstrap/Alert'
 import RadioButtonContainer from './RadioButtonContainer'
+import Footer from './Footer';
 
 export default class BrewerySearch extends Component {
   state = {
@@ -139,20 +140,7 @@ export default class BrewerySearch extends Component {
             </div>
           </div>
         </div>
-        <footer className="mx-auto py-3">
-          <div className="container text-center">
-            Powered By{' '}
-            <span className="text-muted">
-              <a
-                href="https://www.openbrewerydb.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Open Brewery DB
-              </a>
-            </span>
-          </div>
-        </footer>
+        <Footer />
       </React.Fragment>
     )
   }
