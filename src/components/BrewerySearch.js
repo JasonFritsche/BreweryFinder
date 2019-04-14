@@ -90,7 +90,7 @@ export default class BrewerySearch extends Component {
                   id="search-bar"
                   onChange={this.updateSearch}
                 />
-                <button type="submit" className="btn btn-primary mx-2">
+                <button type="submit" className="btn mx-2 search-btn">
                   Search
                 </button>
               </form>

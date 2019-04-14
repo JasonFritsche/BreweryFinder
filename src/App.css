@@ -11,6 +11,10 @@
   font-size: 50px;
 }
 
+.navbar {
+  border-bottom: 1px solid rgb(235, 104, 104);
+}
+
 .underline {
   border-bottom: 2px solid rgb(235, 104, 104);
 }
@@ -38,10 +42,29 @@
 }
 
 .btn {
-  border: 3px solid rgba(44, 72, 142, 1);
-  box-shadow: -2px -1px 20px -1px rgba(44, 72, 142, 1);
+  color: #fff;
+  border: rgba(44, 72, 142, 1);
+  box-shadow: -2px -1px 20px 5px rgba(44, 72, 142, 1);
   padding: 0 20px 0 20px;
   border-radius: 50px;
+  background: rgb(24, 23, 23);
+}
+
+.search-btn {
+  border: 2px solid rgb(45, 67, 121);
+  background: linear-gradient(to right, #1eb7fb, #7b44e3);
+}
+
+.search-btn:hover {
+  border: 2px solid rgb(45, 67, 121);
+}
+
+.back-btn {
+  background: linear-gradient(to right, #1eb7fb, #7b44e3);
+}
+
+.btn:hover {
+  color: #fff;
   background: linear-gradient(to right, #1eb7fb, #7b44e3);
 }
 
@@ -72,6 +95,11 @@ footer {
   bottom: 0;
   width: 100%;
   overflow: hidden;
+}
+
+.card {
+  color: #000;
+  background: linear-gradient(to right, #1eb7fb, #7b44e3);
 }
 
 .Kreon-Text {
