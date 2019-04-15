@@ -4,6 +4,8 @@ A react app that users can use to find breweries across the US via the data from
 
 ## Contribute [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
+_PR's will be merged by either @JasonFritsche or @CDrani_ 
+
 Please feel free to contribute to this open source project. First timers are more than welcome. Take a look at the open issues under the [issues tab](https://github.com/JasonFritsche/BreweryFinder/issues). If you identify a bug, or would like to implement a feature that isn't posted under the issues, please feel free to submit a new issue. Also, if you see anything that needs to be updated in the README file, you're more than welcome to update it. **For issues you want to work on please assign yourself to it, or just mention in a comment under the issue that you have claimed it.**
 
 **Working on your first Pull Request?** You can learn how from this _free_ series [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github).
