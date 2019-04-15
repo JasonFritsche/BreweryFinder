@@ -29,12 +29,13 @@
 .text-capitalize {
   line-height: 2em;
   color: #dedfe4;
-  font-family: 'Raleway';
+  font-family: 'Raleway', sans-serif;
   font-size: 1em;
 }
 
 #search-bar {
-  color: #dedfe4;
+  font-family: 'Raleway', sans-serif;
+  color: rgb(27, 26, 26);
   border: 3px solid rgba(44, 72, 142, 1);
   box-shadow: -2px -1px 20px -1px rgba(44, 72, 142, 1);
   background: #fff;
@@ -75,7 +76,7 @@
 }
 
 .radio-button {
-  font-family: 'Raleway';
+  font-family: 'Raleway', sans-serif;
   color: #dedfe4;
   font-size: 1em;
   backdrop-filter: contrast(80%);
@@ -87,7 +88,7 @@
 }
 
 footer {
-  font-family: 'Raleway';
+  font-family: 'Raleway', sans-serif;
   background: rgb(235, 104, 104);
   color: #000;
   position: fixed;
