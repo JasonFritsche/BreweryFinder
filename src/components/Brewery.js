@@ -5,7 +5,7 @@ export default class Brewery extends Component {
   displayWebsiteUrl(websiteUrl) {
     return (
       <a
-        className="btn btn-primary"
+        className="btn btn-block"
         target="_blank"
         rel="noopener noreferrer"
         href={websiteUrl}

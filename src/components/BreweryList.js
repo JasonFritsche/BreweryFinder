@@ -43,7 +43,7 @@ export default class BreweryList extends Component {
             <form className="form-inline my-2 my-lg-0">
               <button
                 type="button"
-                className="btn btn-outline-info"
+                className="btn btn-outline-info back-btn"
                 onClick={() => this.onClick()}
               >
                 Back to Search

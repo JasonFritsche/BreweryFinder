@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import Typed from 'react-typed'
 import * as Alert from 'react-bootstrap/Alert'
 import RadioButtonContainer from './RadioButtonContainer'
+import img from '../public/cheers.png'
+import githublogo from '../public/github-logo.png'
 
 export default class BrewerySearch extends Component {
   state = {
@@ -48,12 +50,13 @@ export default class BrewerySearch extends Component {
           <div className="row">
             <div className="col">
               <h1 className="Quicksand-Text Glow text-center">
-                Brewery Finder
+                <img src={img} className="vector-img" alt="beer-vector" />{' '}
+                <span className="underline">Brew</span>ery Finder
               </h1>
             </div>
           </div>
           <div className="row">
-            <div className="col text-center">
+            <div className="col text-center mb-5">
               <Typed
                 strings={[
                   'Find a brewery in your hometown',
@@ -84,9 +87,10 @@ export default class BrewerySearch extends Component {
                   className="form-control"
                   type="text"
                   placeholder="Search here..."
+                  id="search-bar"
                   onChange={this.updateSearch}
                 />
-                <button type="submit" className="btn btn-primary mx-2">
+                <button type="submit" className="btn mx-2 search-btn">
                   Search
                 </button>
               </form>
@@ -127,20 +131,18 @@ export default class BrewerySearch extends Component {
                 identifier="typeRadio"
                 tooltip="Types: micro, regional, brewpub, large, planning, bar, contract, proprietor"
               />
-
-              {/* commenting out the tag radio  button for now, as the API doesn't offer much support for this feature yet. Uncomment and test it yourself to see if more search results appear. If so, feel free to uncomment and commit the code to reintroduce the 'tag' radio button */}
-              {/* <RadioButtonContainer
-                val="tag"
-                searchBy={this.state.searchBy}
-                handleSearchChange={this.onSearchChange}
-                identifier="tagRadio"
-                tooltip="Example: dog-friendly, patio, food-service, food-truck, tours"
-              /> */}
             </div>
           </div>
         </div>
         <footer className="mx-auto py-3">
           <div className="container text-center">
+            <a
+              href="https://github.com/JasonFritsche/BreweryFinder"
+              className="d-block"
+              target="_blank"
+            >
+              Contribute <img src={githublogo} id="logo" alt="github-logo" />
+            </a>
             Powered By{' '}
             <span className="text-muted">
               <a
