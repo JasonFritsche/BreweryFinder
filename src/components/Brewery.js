@@ -16,6 +16,25 @@ export default class Brewery extends Component {
     )
   }
 
+  displayLocation(street, city, state) {
+    // format for Google Maps
+    var street = street.replace(/ /g,"+")
+    var city = city.replace(/ /g,"+")
+    var state = state.replace(/ /g,"+")
+    var url = "https://www.google.com/maps/place/"+street+","+city+","+state
+    return (
+      <a
+        className="btn btn-block"
+        target="_blank"
+        rel="noopener noreferrer"
+        href={url}
+        onMouseDown={e => e.preventDefault()}
+      >
+        View Map
+      </a>
+    )
+  }
+
   render() {
     const {
       brewery: {
@@ -42,6 +61,7 @@ export default class Brewery extends Component {
               {city}, {state}
             </h6>
             {this.displayWebsiteUrl(websiteUrl)}
+            {this.displayLocation(street, city, state)}
           </div>
         </div>
       </div>
