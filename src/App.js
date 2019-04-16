@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useRef, useState } from 'react'
 import './App.css'
 import BreweryList from './components/BreweryList'
 import BrewerySearch from './components/BrewerySearch'
@@ -11,6 +11,16 @@ const App = () => {
   const [searchByParam, setSearchByParam] = useState('city');
   const [page, setPage] = useState(PAGE_HOME);
 
+  const usePrevious = value => {
+    const ref = useRef()
+    useEffect(() => {
+      ref.current = value
+    })
+    return ref.current
+  }
+
+  const prevSearchTerm = usePrevious(searchTerm)
+
   const backToSearch = () => {
     setSearchByParam('city')
     setPage(PAGE_HOME)
@@ -22,18 +32,6 @@ const App = () => {
       !item.name.toLowerCase().includes('brewery in planning')
   )
 
-  const fetchBreweryData = async () => {
-    const url = `https://api.openbrewerydb.org/breweries?by_${searchByParam}=${searchTerm}`
-    const data = await fetch(url)
-    const jsonData = await data.json()
-    const cleanData = filterResults(jsonData)
-    setBreweries(cleanData)
-  };
-
-  useEffect(() => {
-    fetchBreweryData()
-  }, [searchTerm, searchByParam])
-
   // searchTerm is the value from the input/search bar
   const handleSearch = term => {
     setSearchTerm(term)
@@ -44,14 +42,20 @@ const App = () => {
     setSearchByParam(e)
   }
 
-  useEffect((prevSearchTerm) => {
+  useEffect(() => {
     const searchChanged = searchTerm !== prevSearchTerm
     if(searchChanged) {
-      fetchBreweryData(searchTerm, searchByParam)
+      (async () => {
+        const url = `https://api.openbrewerydb.org/breweries?by_${searchByParam}=${searchTerm}`
+        const data = await fetch(url)
+        const jsonData = await data.json()
+        const cleanData = filterResults(jsonData)
+        setBreweries(cleanData)
+      })()
     }
-  }, [searchTerm, searchByParam])
+  }, [prevSearchTerm, searchTerm, searchByParam])
 
-  const displayBreweryList = () => {
+  const displayBreweryComponent= () => {
     if (page === PAGE_RESULTS) {
       return (
         <BreweryList
@@ -71,7 +75,7 @@ const App = () => {
   }
     return (
       <Suspense fallback={<div>Loading...</div>}>
-        {displayBreweryList(page)}
+        {displayBreweryComponent()}
       </Suspense>
     )
 }
