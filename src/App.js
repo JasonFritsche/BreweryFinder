@@ -6,10 +6,10 @@ import BrewerySearch from './components/BrewerySearch'
 const App = () => {
   const PAGE_HOME = 'home'
   const PAGE_RESULTS = 'search_results'
-  const [breweries, setBreweries] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('Boston');
-  const [searchByParam, setSearchByParam] = useState('city');
-  const [page, setPage] = useState(PAGE_HOME);
+  const [breweries, setBreweries] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
+  const [searchByParam, setSearchByParam] = useState('city')
+  const [page, setPage] = useState(PAGE_HOME)
 
   const usePrevious = value => {
     const ref = useRef()
@@ -27,12 +27,10 @@ const App = () => {
   }
 
   const filterResults = data =>
-  data.filter(
-    item =>
-      !item.name.toLowerCase().includes('brewery in planning')
-  )
+    data.filter(
+      item => !item.name.toLowerCase().includes('brewery in planning')
+    )
 
-  // searchTerm is the value from the input/search bar
   const handleSearch = term => {
     setSearchTerm(term)
     setPage(PAGE_RESULTS)
@@ -44,8 +42,8 @@ const App = () => {
 
   useEffect(() => {
     const searchChanged = searchTerm !== prevSearchTerm
-    if(searchChanged) {
-      (async () => {
+    if (searchChanged) {
+      ;(async () => {
         const url = `https://api.openbrewerydb.org/breweries?by_${searchByParam}=${searchTerm}`
         const data = await fetch(url)
         const jsonData = await data.json()
@@ -55,7 +53,7 @@ const App = () => {
     }
   }, [prevSearchTerm, searchTerm, searchByParam])
 
-  const displayBreweryComponent= () => {
+  const displayComponent = () => {
     if (page === PAGE_RESULTS) {
       return (
         <BreweryList
@@ -66,18 +64,13 @@ const App = () => {
         />
       )
     }
-    return (
-      <BrewerySearch
-        handleSearch={handleSearch}
-        searchBy={searchBy}
-      />
-    )
+
+    return <BrewerySearch handleSearch={handleSearch} searchBy={searchBy} />
   }
-    return (
-      <Suspense fallback={<div>Loading...</div>}>
-        {displayBreweryComponent()}
-      </Suspense>
-    )
+
+  return (
+    <Suspense fallback={<div>Loading...</div>}>{displayComponent()}</Suspense>
+  )
 }
 
 export default App
