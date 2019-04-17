@@ -1,97 +1,76 @@
-import React, { Component, Suspense } from 'react'
+import React, { Suspense, useEffect, useRef, useState } from 'react'
 import './App.css'
 import BreweryList from './components/BreweryList'
 import BrewerySearch from './components/BrewerySearch'
 
-const PAGE_HOME = 'home'
-const PAGE_RESULTS = 'search_results'
+const App = () => {
+  const PAGE_HOME = 'home'
+  const PAGE_RESULTS = 'search_results'
+  const [breweries, setBreweries] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
+  const [searchByParam, setSearchByParam] = useState('city')
+  const [page, setPage] = useState(PAGE_HOME)
 
-class App extends Component {
-  state = {
-    breweries: [],
-    searchTerm: 'Boston',
-    searchByParam: 'city',
-    page: PAGE_HOME
-  }
-
-  backToSearch = () => {
-    this.setState({
-      searchByParam: 'city',
-      page: PAGE_HOME
+  const usePrevious = value => {
+    const ref = useRef()
+    useEffect(() => {
+      ref.current = value
     })
+    return ref.current
   }
 
-  async fetchBreweryData(searchTerm, searchByParam) {
-    try {
-      const url = `https://api.openbrewerydb.org/breweries?by_${searchByParam}=${searchTerm}`
-      const data = await fetch(url)
-      const jsonData = await data.json()
-      const cleanData = this.filterResults(jsonData)
-      this.setState({
-        breweries: cleanData
-      })
-    } catch (error) {
-      console.log(error)
-    }
+  const prevSearchTerm = usePrevious(searchTerm)
+
+  const backToSearch = () => {
+    setSearchByParam('city')
+    setPage(PAGE_HOME)
   }
 
-  // searchTerm is the value from the input/search bar
-  handleSearch = searchTerm => {
-    this.setState({
-      searchTerm,
-      page: PAGE_RESULTS
-    })
-  }
-
-  searchBy = e => {
-    this.setState({
-      searchByParam: e
-    })
-  }
-
-  componentDidUpdate(previousProps, previousState) {
-    const { searchTerm, searchByParam } = this.state
-    const searchChanged = searchTerm !== previousState.searchTerm
-    if (searchChanged) {
-      this.fetchBreweryData(searchTerm, searchByParam)
-    }
-  }
-
-  // Exclude breweries that contains "Brewery In Planning"
-  filterResults = data =>
+  const filterResults = data =>
     data.filter(
-      item =>
-        !item.name.toLowerCase().includes('brewery in planning')
+      item => !item.name.toLowerCase().includes('brewery in planning')
     )
 
-  whatToDisplay = page => {
-    const { breweries, searchTerm, searchByParam } = this.state
+  const handleSearch = term => {
+    setSearchTerm(term)
+    setPage(PAGE_RESULTS)
+  }
+
+  const searchBy = e => {
+    setSearchByParam(e)
+  }
+
+  useEffect(() => {
+    const searchChanged = searchTerm !== prevSearchTerm
+    if (searchChanged) {
+      ;(async () => {
+        const url = `https://api.openbrewerydb.org/breweries?by_${searchByParam}=${searchTerm}`
+        const data = await fetch(url)
+        const jsonData = await data.json()
+        const cleanData = filterResults(jsonData)
+        setBreweries(cleanData)
+      })()
+    }
+  }, [prevSearchTerm, searchTerm, searchByParam])
+
+  const displayComponent = () => {
     if (page === PAGE_RESULTS) {
       return (
         <BreweryList
           breweries={breweries}
-          backToSearch={this.backToSearch}
+          backToSearch={backToSearch}
           searchTerm={searchTerm}
           searchParam={searchByParam}
         />
       )
     }
-    return (
-      <BrewerySearch
-        handleSearch={this.handleSearch}
-        searchBy={this.searchBy}
-      />
-    )
+
+    return <BrewerySearch handleSearch={handleSearch} searchBy={searchBy} />
   }
 
-  render() {
-    const { page } = this.state
-    return (
-      <Suspense fallback={<div>Loading...</div>}>
-        {this.whatToDisplay(page)}
-      </Suspense>
-    )
-  }
+  return (
+    <Suspense fallback={<div>Loading...</div>}>{displayComponent()}</Suspense>
+  )
 }
 
 export default App
