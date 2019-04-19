@@ -1,15 +1,15 @@
 {
-  "main.css": "/BreweryFinder/static/css/main.ebac08f5.chunk.css",
-  "main.js": "/BreweryFinder/static/js/main.c2356148.chunk.js",
-  "main.js.map": "/BreweryFinder/static/js/main.c2356148.chunk.js.map",
+  "main.css": "/BreweryFinder/static/css/main.ff7cc420.chunk.css",
+  "main.js": "/BreweryFinder/static/js/main.52f379fd.chunk.js",
+  "main.js.map": "/BreweryFinder/static/js/main.52f379fd.chunk.js.map",
   "runtime~main.js": "/BreweryFinder/static/js/runtime~main.bffb9996.js",
   "runtime~main.js.map": "/BreweryFinder/static/js/runtime~main.bffb9996.js.map",
-  "static/js/2.74580d79.chunk.js": "/BreweryFinder/static/js/2.74580d79.chunk.js",
-  "static/js/2.74580d79.chunk.js.map": "/BreweryFinder/static/js/2.74580d79.chunk.js.map",
+  "static/js/2.68bc8f79.chunk.js": "/BreweryFinder/static/js/2.68bc8f79.chunk.js",
+  "static/js/2.68bc8f79.chunk.js.map": "/BreweryFinder/static/js/2.68bc8f79.chunk.js.map",
   "index.html": "/BreweryFinder/index.html",
-  "precache-manifest.8f7d02985c6c755d8316c30e4588da46.js": "/BreweryFinder/precache-manifest.8f7d02985c6c755d8316c30e4588da46.js",
+  "precache-manifest.3a4edfc5a2b9b5d75994dbe3912ce6ed.js": "/BreweryFinder/precache-manifest.3a4edfc5a2b9b5d75994dbe3912ce6ed.js",
   "service-worker.js": "/BreweryFinder/service-worker.js",
-  "static/css/main.ebac08f5.chunk.css.map": "/BreweryFinder/static/css/main.ebac08f5.chunk.css.map",
+  "static/css/main.ff7cc420.chunk.css.map": "/BreweryFinder/static/css/main.ff7cc420.chunk.css.map",
   "static/media/cheers.png": "/BreweryFinder/static/media/cheers.9fb728e3.png",
   "static/media/github-logo.png": "/BreweryFinder/static/media/github-logo.6aaf2980.png"
 }
