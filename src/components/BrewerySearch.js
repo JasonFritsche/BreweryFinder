@@ -47,15 +47,15 @@ export default class BrewerySearch extends Component {
     return (
       <React.Fragment>
         <div>
-          <div className="row">
-            <div className="col">
-              <h1 className="Quicksand-Text Glow text-center">
-                <img src={img} className="vector-img" alt="beer-vector" />{' '}
+          <div className="row m-0">
+            <div className="col p-0">
+              <h1 className="Quicksand-Text Glow text-center display-4">
+                <img src={img} className="vector-img d-none d-md-inline" alt="beer-vector" />{' '}
                 <span className="underline">Brew</span>ery Finder
               </h1>
             </div>
           </div>
-          <div className="row">
+          <div className="row m-0">
             <div className="col text-center mb-5">
               <Typed
                 strings={[
@@ -82,7 +82,7 @@ export default class BrewerySearch extends Component {
               <h2 className="text-capitalize">
                 search for breweries by {searchFilter}
               </h2>
-              <form className="form input-group" onSubmit={this.onSearchClick}>
+              <form className="form input-group text-center" onSubmit={this.onSearchClick}>
                 <input
                   className="form-control"
                   type="text"
@@ -102,7 +102,7 @@ export default class BrewerySearch extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="radio-button form-check-inline">
+            <div className="radio-button form-check-inline p-0 mx-auto">
               <RadioButtonContainer
                 val="city"
                 searchBy={searchFilter}
@@ -140,6 +140,7 @@ export default class BrewerySearch extends Component {
               href="https://github.com/JasonFritsche/BreweryFinder"
               className="d-block"
               target="_blank"
+              rel="noopener noreferrer"
             >
               Contribute <img src={githublogo} id="logo" alt="github-logo" />
             </a>
