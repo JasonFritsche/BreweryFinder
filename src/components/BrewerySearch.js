@@ -62,7 +62,7 @@ export default class BrewerySearch extends Component {
                   'Find a brewery in your hometown',
                   'Find your new hangout',
                   'Find your new favorite beer',
-                  'Find the answer to your problems'
+                  'Find the answer to your problems' 
                 ]}
                 typeSpeed={70}
                 startDelay={1200}
