@@ -16,11 +16,16 @@
     "lint:fix": "eslint src --fix"
   },
   "lint-staged": {
-    "*.{js}": [
-      "pretty-quick --staged",
-      "eslint src --fix",
-      "git add"
-    ]
+    "linters": {
+      "*.{js,json,md,html,rc}": [
+        "prettier --write",
+        "git add"
+      ],
+      "*.{js}": [
+        "npm run lint:fix",
+        "git add"
+      ]
+    }
   },
   "husky": {
     "hooks": {
