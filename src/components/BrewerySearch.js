@@ -44,6 +44,27 @@ export default class BrewerySearch extends Component {
     this.setState({ showAlert: false })
   }
 
+  displayRadioButtons = () => {
+    const { searchFilter } = this.state
+    return ['city', 'state', 'name', 'type'].map(radioBtn => {
+      const toolTipMessage =
+        radioBtn !== 'type'
+          ? `Search By ${radioBtn}`
+          : 'Types: micro, regional, brewpub, large, planning, bar, contract, proprietor'
+
+      return (
+        <RadioButtonContainer
+          key={radioBtn}
+          val={radioBtn}
+          searchBy={searchFilter}
+          handleSearchChange={this.onSearchChange}
+          identifier={`${radioBtn}Radio`}
+          tooltip={toolTipMessage}
+        />
+      )
+    })
+  }
+
   render() {
     const { searchFilter, showAlert } = this.state
     return (
@@ -105,34 +126,7 @@ export default class BrewerySearch extends Component {
           </div>
           <div className="row">
             <div className="radio-button form-check-inline">
-              <RadioButtonContainer
-                val="city"
-                searchBy={searchFilter}
-                handleSearchChange={this.onSearchChange}
-                identifier="cityRadio"
-                tooltip="Search by city"
-              />
-              <RadioButtonContainer
-                val="state"
-                searchBy={searchFilter}
-                handleSearchChange={this.onSearchChange}
-                identifier="stateRadio"
-                tooltip="Search by state"
-              />
-              <RadioButtonContainer
-                val="name"
-                searchBy={searchFilter}
-                handleSearchChange={this.onSearchChange}
-                identifier="nameRadio"
-                tooltip="Search by brewery name"
-              />
-              <RadioButtonContainer
-                val="type"
-                searchBy={searchFilter}
-                handleSearchChange={this.onSearchChange}
-                identifier="typeRadio"
-                tooltip="Types: micro, regional, brewpub, large, planning, bar, contract, proprietor"
-              />
+              {this.displayRadioButtons()}
             </div>
           </div>
         </div>
