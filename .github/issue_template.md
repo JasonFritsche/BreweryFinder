@@ -18,4 +18,4 @@
 
 ## Screenshot(s)
 
-<!--- (if applicable -- you can delete otherwise) -->
+<!--- (only if applicable, otherwise delete this section) -->
