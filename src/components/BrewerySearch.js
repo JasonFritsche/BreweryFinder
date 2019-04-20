@@ -2,11 +2,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Typed from 'react-typed'
 import * as Alert from 'react-bootstrap/Alert'
+import Footer from './Footer'
 
-import Anchor from './Anchor'
 import RadioButtonContainer from './RadioButtonContainer'
 import img from '../public/cheers.png'
-import githublogo from '../public/github-logo.png'
 
 export default class BrewerySearch extends Component {
   state = {
@@ -130,18 +129,7 @@ export default class BrewerySearch extends Component {
             </div>
           </div>
         </div>
-        <footer className="mx-auto py-3">
-          <div className="container text-center">
-            <Anchor
-              url="https://github.com/JasonFritsche/BreweryFinder"
-              classes="d-block"
-            >
-              Repo <img src={githublogo} id="logo" alt="github-logo" />
-            </Anchor>
-            Powered By{' '}
-            <Anchor url="https://www.openbrewerydb.org">Open Brewery DB</Anchor>
-          </div>
-        </footer>
+        <Footer />
       </>
     )
   }
