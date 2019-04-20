@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Typed from 'react-typed'
 import * as Alert from 'react-bootstrap/Alert'
+
+import Anchor from './Anchor'
 import RadioButtonContainer from './RadioButtonContainer'
 import img from '../public/cheers.png'
 import githublogo from '../public/github-logo.png'
@@ -45,7 +47,7 @@ export default class BrewerySearch extends Component {
   render() {
     const { searchFilter, showAlert } = this.state
     return (
-      <React.Fragment>
+      <>
         <div>
           <div className="row">
             <div className="col">
@@ -136,26 +138,17 @@ export default class BrewerySearch extends Component {
         </div>
         <footer className="mx-auto py-3">
           <div className="container text-center">
-            <a
-              href="https://github.com/JasonFritsche/BreweryFinder"
-              className="d-block"
-              target="_blank"
+            <Anchor
+              url="https://github.com/JasonFritsche/BreweryFinder"
+              classes="d-block"
             >
-              Contribute <img src={githublogo} id="logo" alt="github-logo" />
-            </a>
+              Repo <img src={githublogo} id="logo" alt="github-logo" />
+            </Anchor>
             Powered By{' '}
-            <span className="text-muted">
-              <a
-                href="https://www.openbrewerydb.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Open Brewery DB
-              </a>
-            </span>
+            <Anchor url="https://www.openbrewerydb.org">Open Brewery DB</Anchor>
           </div>
         </footer>
-      </React.Fragment>
+      </>
     )
   }
 }

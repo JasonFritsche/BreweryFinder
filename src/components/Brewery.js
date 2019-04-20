@@ -1,32 +1,22 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import Anchor from './Anchor'
+
 export default class Brewery extends Component {
   displayWebsiteUrl(websiteUrl) {
     return (
-      <a
-        className="btn btn-block"
-        target="_blank"
-        rel="noopener noreferrer"
-        href={websiteUrl}
-        onMouseDown={e => e.preventDefault()}
-      >
+      <Anchor classes="btn btn-block" url={websiteUrl}>
         Check Them Out
-      </a>
+      </Anchor>
     )
   }
 
   displayLocation(address) {
     return (
-      <a
-        className="btn btn-block"
-        target="_blank"
-        rel="noopener noreferrer"
-        href={this.formatAddressUrl(address)}
-        onMouseDown={e => e.preventDefault()}
-      >
+      <Anchor classes="btn btn-block" url={this.formatAddressUrl(address)}>
         View Map
-      </a>
+      </Anchor>
     )
   }
 
