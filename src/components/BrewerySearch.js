@@ -3,10 +3,9 @@ import PropTypes from 'prop-types'
 import Typed from 'react-typed'
 import * as Alert from 'react-bootstrap/Alert'
 
-import Anchor from './Anchor'
-import RadioButtonContainer from './RadioButtonContainer'
+import Footer from './Footer'
 import img from '../public/cheers.png'
-import githublogo from '../public/github-logo.png'
+import RadioButtonContainer from './RadioButtonContainer'
 
 export default class BrewerySearch extends Component {
   state = {
@@ -69,34 +68,32 @@ export default class BrewerySearch extends Component {
     const { searchFilter, showAlert } = this.state
     return (
       <>
-        <div>
-          <div className="row">
-            <div className="col">
-              <h1 className="Quicksand-Text Glow text-center">
-                <img src={img} className="vector-img" alt="beer-vector" />{' '}
-                <span className="underline">Brew</span>ery Finder
-              </h1>
-            </div>
+        <div className="row">
+          <div className="col">
+            <h1 className="Quicksand-Text Glow text-center">
+              <img src={img} className="vector-img" alt="beer-vector" />{' '}
+              <span className="underline">Brew</span>ery Finder
+            </h1>
           </div>
-          <div className="row">
-            <div className="col text-center mb-5">
-              <Typed
-                strings={[
-                  'Find a brewery in your hometown',
-                  'Find your new hangout',
-                  'Find your new favorite beer',
-                  'Find the answer to your problems'
-                ]}
-                typeSpeed={70}
-                startDelay={1200}
-                backDelay={3000}
-                backSpeed={60}
-                loop
-                loopCount={30}
-                showCursor
-                className="typing-text"
-              />
-            </div>
+        </div>
+        <div className="row">
+          <div className="col text-center mb-5">
+            <Typed
+              strings={[
+                'Find a brewery in your hometown',
+                'Find your new hangout',
+                'Find your new favorite beer',
+                'Find the answer to your problems'
+              ]}
+              typeSpeed={70}
+              startDelay={1200}
+              backDelay={3000}
+              backSpeed={60}
+              loop
+              loopCount={30}
+              showCursor
+              className="typing-text"
+            />
           </div>
         </div>
         <div className="container mb-5">
@@ -130,18 +127,7 @@ export default class BrewerySearch extends Component {
             </div>
           </div>
         </div>
-        <footer className="mx-auto py-3">
-          <div className="container text-center">
-            <Anchor
-              url="https://github.com/JasonFritsche/BreweryFinder"
-              classes="d-block"
-            >
-              Repo <img src={githublogo} id="logo" alt="github-logo" />
-            </Anchor>
-            Powered By{' '}
-            <Anchor url="https://www.openbrewerydb.org">Open Brewery DB</Anchor>
-          </div>
-        </footer>
+        <Footer />
       </>
     )
   }
