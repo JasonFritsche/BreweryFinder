@@ -45,8 +45,8 @@
 .btn {
   color: #fff;
   border: rgba(44, 72, 142, 1);
-  box-shadow: -2px -1px 20px 5px rgba(44, 72, 142, 1);
-  padding: 0 20px 0 20px;
+  box-shadow: -1px -1px 5px 1px rgba(44, 72, 142, 1);
+  padding: 10px; 
   border-radius: 50px;
   background: rgb(24, 23, 23);
 }
