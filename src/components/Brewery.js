@@ -7,7 +7,7 @@ export default class Brewery extends Component {
   displayWebsiteUrl(websiteUrl) {
     return (
       <Anchor classes="btn btn-block" url={websiteUrl}>
-        Check Them Out
+        Visit
       </Anchor>
     )
   }
@@ -15,7 +15,7 @@ export default class Brewery extends Component {
   displayLocation(address) {
     return (
       <Anchor classes="btn btn-block" url={this.formatAddressUrl(address)}>
-        View Map
+        Map
       </Anchor>
     )
   }
@@ -53,8 +53,12 @@ export default class Brewery extends Component {
             <h6 className="text-capitalize">
               {city}, {state}
             </h6>
-            {this.displayWebsiteUrl(websiteUrl)}
-            {this.displayLocation([street, city, state])}
+            <div className="row">
+              <div className="col">{this.displayWebsiteUrl(websiteUrl)}</div>
+              <div className="col">
+                {this.displayLocation([street, city, state])}
+              </div>
+            </div>
           </div>
         </div>
       </div>
