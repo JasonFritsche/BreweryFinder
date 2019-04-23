@@ -68,32 +68,34 @@ export default class BrewerySearch extends Component {
     const { searchFilter, showAlert } = this.state
     return (
       <>
-        <div className="row">
-          <div className="col">
-            <h1 className="Quicksand-Text Glow text-center">
-              <img src={img} className="vector-img" alt="beer-vector" />{' '}
-              <span className="underline">Brew</span>ery Finder
-            </h1>
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <h1 className="Quicksand-Text Glow text-center">
+                <img src={img} className="vector-img" alt="beer-vector" />{' '}
+                <span className="underline">Brew</span>ery Finder
+              </h1>
+            </div>
           </div>
-        </div>
-        <div className="row">
-          <div className="col text-center mb-5">
-            <Typed
-              strings={[
-                'Find a brewery in your hometown',
-                'Find your new hangout',
-                'Find your new favorite beer',
-                'Find the answer to your problems'
-              ]}
-              typeSpeed={70}
-              startDelay={1200}
-              backDelay={3000}
-              backSpeed={60}
-              loop
-              loopCount={30}
-              showCursor
-              className="typing-text"
-            />
+          <div className="row">
+            <div className="col text-center mb-5">
+              <Typed
+                strings={[
+                  'Find a brewery in your hometown',
+                  'Find your new hangout',
+                  'Find your new favorite beer',
+                  'Find the answer to your problems'
+                ]}
+                typeSpeed={70}
+                startDelay={1200}
+                backDelay={3000}
+                backSpeed={60}
+                loop
+                loopCount={30}
+                showCursor
+                className="typing-text"
+              />
+            </div>
           </div>
         </div>
         <div className="container mb-5">
