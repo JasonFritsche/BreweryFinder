@@ -17,6 +17,11 @@
 
 .navbar {
   border: none;
+  padding: 20px 0;
+}
+
+.Search-Result-Quicksand-Text {
+  padding-top: 0;
 }
 
 .underline {

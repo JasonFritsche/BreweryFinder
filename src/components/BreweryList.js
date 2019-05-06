@@ -27,7 +27,7 @@ const BreweryList = ({ backToSearch, breweries, searchParam, searchTerm }) => {
             loop
             loopCount={30}
             showCursor
-            className="h4 mx-auto Quicksand-Text"
+            className="h4 Search-Result-Quicksand-Text mx-auto Quicksand-Text"
           />
           <form className="form-inline my-2 my-lg-0">
             <button
