@@ -11,8 +11,12 @@
   font-size: 50px;
 }
 
-.navbar {
+.navbar-wrapper {
   border-bottom: 1px solid rgb(235, 104, 104);
+}
+
+.navbar {
+  border: none;
 }
 
 .underline {

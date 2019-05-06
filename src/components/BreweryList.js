@@ -16,8 +16,8 @@ const BreweryList = ({ backToSearch, breweries, searchParam, searchTerm }) => {
 
   return (
     <>
-      <div className="mb-3">
-        <nav className="navbar">
+      <div className="mb-3 navbar-wrapper">
+        <nav className="navbar container">
           <Typed
             strings={['Time to drink', 'Time to party', 'Time to relax']}
             typeSpeed={70}
