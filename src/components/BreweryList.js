@@ -15,8 +15,8 @@ const BreweryList = ({ backToSearch, breweries, searchParam, searchTerm }) => {
     )
 
   return (
-    <>
-      <div className="mb-3 navbar-wrapper">
+    <div className="container">
+      <div className="mb-3 underline">
         <nav className="navbar container">
           <Typed
             strings={['Time to drink', 'Time to party', 'Time to relax']}
@@ -27,23 +27,21 @@ const BreweryList = ({ backToSearch, breweries, searchParam, searchTerm }) => {
             loop
             loopCount={30}
             showCursor
-            className="h4 Search-Result-Quicksand-Text mx-auto Quicksand-Text"
+            className="h4 mx-auto header-text header-text--search header-text--left"
           />
-          <form className="form-inline my-2 my-lg-0">
-            <button
-              type="button"
-              className="btn btn-outline-info"
-              onClick={backToSearch}
-            >
-              Back to Search
-            </button>
-          </form>
+          <button
+            type="button"
+            className="my-2 my-lg-0 btn btn-outline-info"
+            onClick={backToSearch}
+          >
+            &larr;
+          </button>
         </nav>
       </div>
       <div className="container my-5">
         <div className="row">{displayResult()}</div>
       </div>
-    </>
+    </div>
   )
 }
 

@@ -41,7 +41,7 @@ export default class Brewery extends Component {
     } = this.props
 
     return (
-      <div className="col-10 mx-auto col-md-6 col-lg-4 my-3">
+      <div className="col-12 mx-auto col-md-6 col-lg-4 my-3">
         <div className="card h-100">
           <div className="card-body flex-column h-100">
             <h5 className="Kreon-Text text-capitalize">{name}</h5>
