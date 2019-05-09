@@ -7,13 +7,15 @@ const Footer = () => (
     <div className="container text-center footer-content">
       <Anchor
         url="https://github.com/JasonFritsche/BreweryFinder"
-        classes="d-block footer-content-item"
+        classes="footer-content__item"
       >
-        Repo <img src={githublogo} id="logo" alt="github-logo" />
+        Source <img src={githublogo} className="logo" alt="github-logo" />
       </Anchor>
-      Powered By{' '}
-      <Anchor url="https://www.openbrewerydb.org" classes="footer-content-item">
-        Open Brewery DB
+      <Anchor
+        url="https://www.openbrewerydb.org"
+        classes="footer-content__item"
+      >
+        Api OPDB
       </Anchor>
     </div>
   </footer>

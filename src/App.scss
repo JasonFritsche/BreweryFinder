@@ -8,7 +8,6 @@ $red: rgb(235, 104, 104);
   width: 100%;
   border: none;
   padding-top: 1rem;
-  
 }
 
 .header-text {
@@ -101,7 +100,7 @@ $red: rgb(235, 104, 104);
   margin: 0 auto;
 }
 
-#logo {
+.logo {
   height: 20px;
 }
 
@@ -119,10 +118,14 @@ footer {
 .footer-content {
   display: flex;
   justify-content: center;
-}
 
-.footer-content-item {
-  margin-right: 25px;
+  @media (max-width: 760px) {
+    display: block;
+  }
+
+  &__item:first-child {
+    margin-right: 25px;
+  }
 }
 
 .card {
@@ -144,11 +147,5 @@ footer {
     text-shadow: 0 0 0.15em #fff, 0 0 0.25em #ffddad, 0 0 0.35em #5bd0ff,
       0 0 0.55em #5bd0ff, 0 0 0.65em #5bd0ff, 0 0 0.75em #5bd0ff,
       0 0 0.85em #5bd0ff;
-  }
-}
-
-@media(max-width: 767px) {
-  .footer-content {
-    display: block;
   }
 }
