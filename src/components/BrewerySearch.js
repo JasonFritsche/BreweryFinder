@@ -4,7 +4,7 @@ import Typed from 'react-typed'
 import * as Alert from 'react-bootstrap/Alert'
 
 import Footer from './Footer'
-import img from '../public/cheers.png'
+// import img from '../public/cheers.png'
 import RadioButtonContainer from './RadioButtonContainer'
 
 const BrewerySearch = ({ handleSearch, searchBy }) => {
@@ -63,8 +63,8 @@ const BrewerySearch = ({ handleSearch, searchBy }) => {
       <div className="container">
         <div className="row">
           <div className="col">
-            <h1 className="Quicksand-Text Glow text-center">
-              <img src={img} className="vector-img" alt="beer-vector" />{' '}
+            {/* <img src={img} className="vector-img" alt="beer-vector" /> */}
+            <h1 className="header-text text-center">
               <span className="underline">Brew</span>ery Finder
             </h1>
           </div>
