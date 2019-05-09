@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useRef, useState } from 'react'
-import './App.css'
+import './App.scss'
 import BreweryList from './components/BreweryList'
 import BrewerySearch from './components/BrewerySearch'
 
