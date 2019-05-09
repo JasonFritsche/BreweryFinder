@@ -116,6 +116,15 @@ footer {
   overflow: hidden;
 }
 
+.footer-content {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-content-item {
+  margin-right: 25px;
+}
+
 .card {
   color: #000;
   background: linear-gradient(to right, #1eb7fb, #7b44e3);
@@ -135,5 +144,11 @@ footer {
     text-shadow: 0 0 0.15em #fff, 0 0 0.25em #ffddad, 0 0 0.35em #5bd0ff,
       0 0 0.55em #5bd0ff, 0 0 0.65em #5bd0ff, 0 0 0.75em #5bd0ff,
       0 0 0.85em #5bd0ff;
+  }
+}
+
+@media(max-width: 767px) {
+  .footer-content {
+    display: block;
   }
 }
