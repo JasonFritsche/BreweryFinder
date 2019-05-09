@@ -4,15 +4,19 @@ import githublogo from '../public/github-logo.png'
 
 const Footer = () => (
   <footer className="mx-auto py-3">
-    <div className="container text-center">
+    <div className="container text-center footer-content">
       <Anchor
         url="https://github.com/JasonFritsche/BreweryFinder"
-        classes="d-block"
+        classes="footer-content__item"
       >
-        Repo <img src={githublogo} id="logo" alt="github-logo" />
+        Source <img src={githublogo} className="logo" alt="github-logo" />
       </Anchor>
-      Powered By{' '}
-      <Anchor url="https://www.openbrewerydb.org">Open Brewery DB</Anchor>
+      <Anchor
+        url="https://www.openbrewerydb.org"
+        classes="footer-content__item"
+      >
+        Api OPDB
+      </Anchor>
     </div>
   </footer>
 )

@@ -8,7 +8,6 @@ $red: rgb(235, 104, 104);
   width: 100%;
   border: none;
   padding-top: 1rem;
-  
 }
 
 .header-text {
@@ -101,7 +100,7 @@ $red: rgb(235, 104, 104);
   margin: 0 auto;
 }
 
-#logo {
+.logo {
   height: 20px;
 }
 
@@ -114,6 +113,19 @@ footer {
   bottom: 0;
   width: 100%;
   overflow: hidden;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 760px) {
+    display: block;
+  }
+
+  &__item:first-child {
+    margin-right: 25px;
+  }
 }
 
 .card {
