@@ -41,7 +41,7 @@ const App = () => {
   }
 
   useEffect(() => {
-    const searchChanged = searchTerm !== prevSearchTerm
+    const searchChanged = searchTerm && searchTerm !== prevSearchTerm
     if (searchChanged) {
       ;(async () => {
         const url = `https://api.openbrewerydb.org/breweries?by_${searchByParam}=${searchTerm}`
