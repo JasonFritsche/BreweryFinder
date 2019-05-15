@@ -1,26 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import Anchor from './Anchor'
 
-export default class Brewery extends Component {
-  displayWebsiteUrl(websiteUrl) {
-    return (
-      <Anchor classes="btn btn-block" url={websiteUrl}>
-        Visit
-      </Anchor>
-    )
-  }
+const Brewery = props => {
+  const displayWebsiteUrl = websiteUrl => (
+    <Anchor classes="btn btn-block" url={websiteUrl}>
+      Visit
+    </Anchor>
+  )
 
-  displayLocation(address) {
-    return (
-      <Anchor classes="btn btn-block" url={this.formatAddressUrl(address)}>
-        Map
-      </Anchor>
-    )
-  }
-
-  formatAddressUrl(address) {
+  const formatAddressUrl = address => {
     const formattedAddress = address
       .map(location => location.replace(/ /g, '+'))
       .join()
@@ -28,44 +18,48 @@ export default class Brewery extends Component {
     return `https://www.google.com/maps/place/${formattedAddress}/`
   }
 
-  render() {
-    const {
-      brewery: {
-        city,
-        name,
-        brewery_type: breweryType,
-        state,
-        street,
-        website_url: websiteUrl
-      }
-    } = this.props
+  const displayLocation = address => (
+    <Anchor classes="btn btn-block" url={formatAddressUrl(address)}>
+      Map
+    </Anchor>
+  )
 
-    return (
-      <div className="col-12 mx-auto col-md-6 col-lg-4 my-3">
-        <div className="card h-100">
-          <div className="card-body flex-column h-100">
-            <h5 className="Kreon-Text text-capitalize">{name}</h5>
-            <h6 className="text-capitalize">
-              <strong>Type: </strong>
-              {breweryType}
-            </h6>
-            <h6 className="text-capitalize">{street}</h6>
-            <h6 className="text-capitalize">
-              {city}, {state}
-            </h6>
-            <div className="row">
-              <div className="col">{this.displayWebsiteUrl(websiteUrl)}</div>
-              <div className="col">
-                {this.displayLocation([street, city, state])}
-              </div>
-            </div>
+  const {
+    brewery: {
+      city,
+      name,
+      brewery_type: breweryType,
+      state,
+      street,
+      website_url: websiteUrl
+    }
+  } = props
+
+  return (
+    <div className="col-12 mx-auto col-md-6 col-lg-4 my-3">
+      <div className="card h-100">
+        <div className="card-body flex-column h-100">
+          <h5 className="Kreon-Text text-capitalize">{name}</h5>
+          <h6 className="text-capitalize">
+            <strong>Type: </strong>
+            {breweryType}
+          </h6>
+          <h6 className="text-capitalize">{street}</h6>
+          <h6 className="text-capitalize">
+            {city}, {state}
+          </h6>
+          <div className="row">
+            <div className="col">{displayWebsiteUrl(websiteUrl)}</div>
+            <div className="col">{displayLocation([street, city, state])}</div>
           </div>
         </div>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 Brewery.propTypes = {
   brewery: PropTypes.objectOf(PropTypes.any).isRequired
 }
+
+export default Brewery
