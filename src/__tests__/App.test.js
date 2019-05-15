@@ -8,5 +8,7 @@ describe('App', () => {
     const { container } = render(<App />)
     const header = container.getElementsByTagName('h1')[0]
     expect(header.textContent).toBe('Brewery Finder')
+    const footer = container.getElementsByTagName('footer')[0]
+    expect(footer).not.toBeNull()
   })
 })

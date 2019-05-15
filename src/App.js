@@ -1,7 +1,8 @@
-import React, { Suspense, useEffect, useRef, useState } from 'react'
+import React, { Suspense, useEffect, useRef, useState, Fragment } from 'react'
 import './App.scss'
 import BreweryList from './components/BreweryList'
 import BrewerySearch from './components/BrewerySearch'
+import Footer from './components/Footer'
 
 const App = () => {
   const PAGE_HOME = 'home'
@@ -69,7 +70,10 @@ const App = () => {
   }
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>{displayComponent()}</Suspense>
+    <Fragment>
+      <Suspense fallback={<div>Loading...</div>}>{displayComponent()}</Suspense>
+      <Footer />
+    </Fragment>
   )
 }
 
