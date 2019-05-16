@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-testing-library'
 
-import RadioButtonContainer from '../components/RadioButtonContainer'
+import RadioButtonContainer from './RadioButtonContainer'
 
 describe('RadioButtonContainer', () => {
   const [city, state] = [

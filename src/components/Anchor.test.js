@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-testing-library'
 
-import Anchor from '../components/Anchor'
+import Anchor from './Anchor'
 
 describe('Anchor', () => {
   const children = <h2 data-testid="header">https://beer.me</h2>
