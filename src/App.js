@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useRef, useState, Fragment } from 'react'
+import React, { Suspense, useEffect, useRef, useState } from 'react'
 import './App.scss'
 import BreweryList from './components/BreweryList'
 import BrewerySearch from './components/BrewerySearch'
@@ -70,10 +70,10 @@ const App = () => {
   }
 
   return (
-    <Fragment>
+    <>
       <Suspense fallback={<div>Loading...</div>}>{displayComponent()}</Suspense>
       <Footer />
-    </Fragment>
+    </>
   )
 }
 
