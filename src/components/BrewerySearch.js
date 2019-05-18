@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import Typed from 'react-typed'
 import * as Alert from 'react-bootstrap/Alert'
 
-import Footer from './Footer'
-// import img from '../public/cheers.png'
 import RadioButtonContainer from './RadioButtonContainer'
 
 const BrewerySearch = ({ handleSearch, searchBy }) => {
@@ -121,7 +119,6 @@ const BrewerySearch = ({ handleSearch, searchBy }) => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   )
 }
