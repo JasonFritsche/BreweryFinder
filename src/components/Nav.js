@@ -16,6 +16,4 @@ const Nav = () => (
   </div>
 )
 
-Nav.propTypes = {}
-
 export default Nav

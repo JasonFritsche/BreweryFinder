@@ -9,7 +9,7 @@ describe('Anchor', () => {
   const props = {
     testId: 'header',
     url: 'https://beer.me',
-    classes: 'class1 class2',
+    className: 'class1 class2',
     children
   }
 
