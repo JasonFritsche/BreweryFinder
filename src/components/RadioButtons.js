@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Row from 'react-bootstrap/Row'
 
 import RadioButtonContainer from './RadioButtonContainer'
 
@@ -9,7 +10,7 @@ const getToolTipMessage = radioBtn =>
     : 'Types: micro, regional, brewpub, large, planning, bar, contract, proprietor'
 
 const RadioButtons = ({ searchFilter, onSearchChange }) => (
-  <div className="row">
+  <Row>
     <div className="radio-button form-check-inline">
       {['city', 'state', 'name', 'type'].map(radioBtn => (
         <RadioButtonContainer
@@ -22,7 +23,7 @@ const RadioButtons = ({ searchFilter, onSearchChange }) => (
         />
       ))}
     </div>
-  </div>
+  </Row>
 )
 
 RadioButtons.propTypes = {

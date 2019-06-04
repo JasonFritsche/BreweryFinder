@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 import queryString from 'query-string'
+import Container from 'react-bootstrap/Container'
+
 import BreweryList from './BreweryList'
 import Heading from './Heading'
 import Brewery from './Brewery'
@@ -55,12 +57,12 @@ const BreweryListContainer = ({ location, history }) => {
   }, [searchParam, searchTerm, history])
 
   return (
-    <div className="container">
+    <Container>
       <Nav />
       <BreweryList>
         {getContent({ searchTerm, searchParam, breweries, showLoading })}
       </BreweryList>
-    </div>
+    </Container>
   )
 }
 

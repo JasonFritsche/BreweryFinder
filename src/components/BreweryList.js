@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Row from 'react-bootstrap/Row'
+import Container from 'react-bootstrap/Container'
 
 const BreweryList = ({ children }) => (
-  <div className="container my-5">
-    <div className="row">{children}</div>
-  </div>
+  <Container className="my-5">
+    <Row>{children}</Row>
+  </Container>
 )
 
 BreweryList.propTypes = {

@@ -1,17 +1,21 @@
 import React from 'react'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+
 import TypedText from './TypedText'
 
 const SearchHeader = () => (
-  <div className="container">
-    <div className="row">
-      <div className="col">
+  <Container>
+    <Row>
+      <Col>
         <h1 className="header-text text-center">
           <span className="underline">Brew</span>ery Finder
         </h1>
-      </div>
-    </div>
-    <div className="row">
-      <div className="col text-center mb-5">
+      </Col>
+    </Row>
+    <Row>
+      <Col className="text-center mb-5">
         <TypedText
           strings={[
             'Find a brewery in your hometown',
@@ -21,9 +25,9 @@ const SearchHeader = () => (
           ]}
           className="typing-text"
         />
-      </div>
-    </div>
-  </div>
+      </Col>
+    </Row>
+  </Container>
 )
 
 SearchHeader.propTypes = {}

@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import * as Alert from 'react-bootstrap/Alert'
+import Alert from 'react-bootstrap/Alert'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 const SearchBar = ({
   searchFilter,
@@ -9,8 +11,8 @@ const SearchBar = ({
   showAlert,
   onCloseAlert
 }) => (
-  <div className="row">
-    <div className="col-09 mx-auto col-md-8 mt-6 text-center">
+  <Row>
+    <Col md={8} className="mx-auto mt-6 text-center">
       <h2 className="text-capitalize">
         search for breweries by {searchFilter}
       </h2>
@@ -31,8 +33,8 @@ const SearchBar = ({
           <p>A search value is required.</p>
         </Alert>
       )}
-    </div>
-  </div>
+    </Col>
+  </Row>
 )
 
 SearchBar.propTypes = {

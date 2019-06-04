@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import queryString from 'query-string'
+import Container from 'react-bootstrap/Container'
 
 import RadioButtons from './RadioButtons'
 import SearchBar from './SearchBar'
@@ -40,7 +41,7 @@ const BrewerySearch = ({ history }) => {
   return (
     <>
       <SearchHeader />
-      <div className="container mb-5">
+      <Container className="mb-5">
         <SearchBar
           searchFilter={searchFilter}
           showAlert={showAlert}
@@ -52,7 +53,7 @@ const BrewerySearch = ({ history }) => {
           searchFilter={searchFilter}
           onSearchChange={onSearchChange}
         />
-      </div>
+      </Container>
     </>
   )
 }
