@@ -1,80 +1,18 @@
-import React, { Suspense, useEffect, useRef, useState } from 'react'
+import React from 'react'
+import { Route, BrowserRouter } from 'react-router-dom'
 import './App.scss'
-import BreweryList from './components/BreweryList'
+import BreweryListContainer from './components/BreweryListContainer'
 import BrewerySearch from './components/BrewerySearch'
 import Footer from './components/Footer'
 
-const App = () => {
-  const PAGE_HOME = 'home'
-  const PAGE_RESULTS = 'search_results'
-  const [breweries, setBreweries] = useState([])
-  const [searchTerm, setSearchTerm] = useState('')
-  const [searchByParam, setSearchByParam] = useState('city')
-  const [page, setPage] = useState(PAGE_HOME)
-
-  const usePrevious = value => {
-    const ref = useRef()
-    useEffect(() => {
-      ref.current = value
-    })
-    return ref.current
-  }
-
-  const prevSearchTerm = usePrevious(searchTerm)
-
-  const backToSearch = () => {
-    setSearchByParam('city')
-    setPage(PAGE_HOME)
-  }
-
-  const filterResults = data =>
-    data.filter(
-      item => !item.name.toLowerCase().includes('brewery in planning')
-    )
-
-  const handleSearch = term => {
-    setSearchTerm(term)
-    setPage(PAGE_RESULTS)
-  }
-
-  const searchBy = e => {
-    setSearchByParam(e)
-  }
-
-  useEffect(() => {
-    const searchChanged = searchTerm && searchTerm !== prevSearchTerm
-    if (searchChanged) {
-      ;(async () => {
-        const url = `https://api.openbrewerydb.org/breweries?by_${searchByParam}=${searchTerm}`
-        const data = await fetch(url)
-        const jsonData = await data.json()
-        const cleanData = filterResults(jsonData)
-        setBreweries(cleanData)
-      })()
-    }
-  }, [prevSearchTerm, searchTerm, searchByParam])
-
-  const displayComponent = () => {
-    if (page === PAGE_RESULTS) {
-      return (
-        <BreweryList
-          breweries={breweries}
-          backToSearch={backToSearch}
-          searchTerm={searchTerm}
-          searchParam={searchByParam}
-        />
-      )
-    }
-
-    return <BrewerySearch handleSearch={handleSearch} searchBy={searchBy} />
-  }
-
-  return (
-    <>
-      <Suspense fallback={<div>Loading...</div>}>{displayComponent()}</Suspense>
-      <Footer />
-    </>
-  )
-}
+const App = () => (
+  <>
+    <BrowserRouter>
+      <Route exact path="/" component={BrewerySearch} />
+      <Route path="/results" component={BreweryListContainer} />
+    </BrowserRouter>
+    <Footer />
+  </>
+)
 
 export default App

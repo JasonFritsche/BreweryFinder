@@ -5,7 +5,7 @@ import Anchor from './Anchor'
 
 const Brewery = props => {
   const displayWebsiteUrl = websiteUrl => (
-    <Anchor classes="btn btn-block" url={websiteUrl}>
+    <Anchor className="btn btn-block" url={websiteUrl}>
       Visit
     </Anchor>
   )
@@ -19,7 +19,7 @@ const Brewery = props => {
   }
 
   const displayLocation = address => (
-    <Anchor classes="btn btn-block" url={formatAddressUrl(address)}>
+    <Anchor className="btn btn-block" url={formatAddressUrl(address)}>
       Map
     </Anchor>
   )

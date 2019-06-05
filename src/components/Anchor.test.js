@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-testing-library'
 
-import Anchor from '../components/Anchor'
+import Anchor from './Anchor'
 
 describe('Anchor', () => {
   const children = <h2 data-testid="header">https://beer.me</h2>
@@ -9,7 +9,7 @@ describe('Anchor', () => {
   const props = {
     testId: 'header',
     url: 'https://beer.me',
-    classes: 'class1 class2',
+    className: 'class1 class2',
     children
   }
 
