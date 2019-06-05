@@ -30,6 +30,4 @@ const SearchHeader = () => (
   </Container>
 )
 
-SearchHeader.propTypes = {}
-
 export default SearchHeader
